@@ -1,16 +1,25 @@
 const net = require('net')
 
-clients = []
+let clients = []
 
 let server = net.createServer((socket) => {
     console.log(socket.remoteAddress+ ':' +socket.remotePort)
     clients.push(socket)
-    
+
     socket.setEncoding('utf8')
-    
+
     socket.on('data', (data) => {
-        console.log(data)
-        broadcast(data)
+      //try {
+        data = JSON.parse(data)
+        if (data.hasOwnProperty('Message')) {
+          broadcast(data)
+        } else {
+          console.log(data)
+        }
+
+      //} catch (e) {
+      //  throw e
+      //}
     })
 })
 
@@ -32,6 +41,6 @@ server.listen(3000, '127.0.0.1', () => {
 
 function broadcast(message) {
     clients.map((client) => {
-        client.write(message)
+        client.write(JSON.stringify(message))
     })
 }

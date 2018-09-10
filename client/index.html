@@ -26,7 +26,7 @@
                 let msg = document.createElement("p")
                 msg.innerHTML = data
                 document.getElementById("content").appendChild(msg)
-            })   
+            })
         }
 
         function disconnect() {
@@ -36,7 +36,7 @@
 
         function send() {
             let msg = document.getElementById("text").value
-            client.write(msg)
+            client.write('{"Message": "'+ msg +'"}')
             }
 
         </script>
