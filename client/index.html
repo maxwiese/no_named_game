@@ -1,52 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <script src="main.js" charset="utf-8"></script>
-    </head>
+<head>
+  <meta charset="UTF-8">
+  <script src="handle_server_conection.js" charset="utf-8"></script>
+</head>
 
-    <body>
-<<<<<<< HEAD
-        <script src="main.js" charset="utf-8"></script>
-=======
-        <script>
-            const net = require('net')
-            let client
+<body>
+  <div class="">
+    <button onclick="connect()" id="connect"> Connect </button>
+    <button onclick="disconnect()" id="disconnect"> Disconnect </button>
+  </div>
+  <br>
+  <div class="">
+    <label>command</label>
+    <input id="command" type="text">
 
-            function connect(){
-            client = new net.Socket()
+  </div>
+  <br>
+  <div class="">
+    <label>data</label>
+    <input id="data" type="text">
 
-            console.log("joining")
-            client.connect(3000, '127.0.0.1', () => {
-                document.getElementById("connect").innerHTML = "Connected"
-            })
-
-            client.setEncoding('utf8')
-            client.on('data', (data) => {
-                let msg = document.createElement("p")
-                msg.innerHTML = data
-                document.getElementById("content").appendChild(msg)
-            })
-        }
-
-        function disconnect() {
-            client.end()
-            client.destroy()
-        }
-
-        function send() {
-            let msg = document.getElementById("text").value
-            client.write('{"Message": "'+ msg +'"}')
-            }
-
-        </script>
->>>>>>> d7e9f22dc8cc67aa06fb9f35da7f0d995498fefc
-        <button onclick="connect()" id="connect"> Connect </button>
-        <button onclick="disconnect()" id="disconnect"> Disconnect </button>
-        <input id="text" type="text">
-        <button onclick="send()">Send</button>
-        <div id="content"></div>
-    </body>
+  </div>
+  <br>
+  <div class="">
+    <button onclick="sending()">Send</button>
+  </div>
+  <br>
+  <div id="content"></div>
+</body>
 
 </html>
