@@ -4,3 +4,5 @@
 - working on server:
     - (adding basic functionallity)
     - json strings for tranfering player, positions, use ...
+### matthias
+- learning WebGL
