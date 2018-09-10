@@ -3,12 +3,13 @@
 
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Electron</title>
+        <script src="main.js" charset="utf-8"></script>
     </head>
 
     <body>
+<<<<<<< HEAD
+        <script src="main.js" charset="utf-8"></script>
+=======
         <script>
             const net = require('net')
             let client
@@ -26,7 +27,7 @@
                 let msg = document.createElement("p")
                 msg.innerHTML = data
                 document.getElementById("content").appendChild(msg)
-            })   
+            })
         }
 
         function disconnect() {
@@ -36,10 +37,11 @@
 
         function send() {
             let msg = document.getElementById("text").value
-            client.write(msg)
+            client.write('{"Message": "'+ msg +'"}')
             }
 
         </script>
+>>>>>>> d7e9f22dc8cc67aa06fb9f35da7f0d995498fefc
         <button onclick="connect()" id="connect"> Connect </button>
         <button onclick="disconnect()" id="disconnect"> Disconnect </button>
         <input id="text" type="text">

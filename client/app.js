@@ -1,11 +1,11 @@
 const {app, BrowserWindow} = require('electron')
 
-let win 
+let win
 
 function createWindow() {
-    win = new BrowserWindow({width: 800, height:600})
+    win = new BrowserWindow({width: 800, height:600, title:'No Name'})
     win.loadFile('index.html')
-  
+
     // Open the DevTools.
     //win.webContents.openDevTools()
     win.on('closed', () => {
@@ -14,14 +14,14 @@ function createWindow() {
     })
   }
   app.on('ready', createWindow)
-  
+
   // Quit when all windows are closed.
   app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
       app.quit()
     }
   })
-  
+
   app.on('activate', () => {
     if (win === null) {
       createWindow()
