@@ -3,18 +3,33 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="./public/stylesheet/style.css">
+  <script src="handle_server_conection.js" charset="utf-8"></script>
 </head>
 
-<body onload="main()">
-  <div id="hide">
-    <script src="./public/javascript/main.js" charset="utf-8"></script>
+<body>
+  <div class="">
     <button onclick="connect()" id="connect"> Connect </button>
     <button onclick="disconnect()" id="disconnect"> Disconnect </button>
-    <input id="text" type="text">
-    <button onclick="send()">Send</button>
-    <div id="content"></div>
   </div>
+  <br>
+  <div class="">
+    <label>command</label>
+    <input id="command" type="text">
+
+  </div>
+  <br>
+  <div class="">
+    <label>data</label>
+    <input id="data" type="text">
+
+  </div>
+  <br>
+  <div class="">
+    <button onclick="sending()">Send</button>
+    <p id="delay"></p>
+  </div>
+  <br>
+  <div id="content"></div>
 </body>
 
 </html>
