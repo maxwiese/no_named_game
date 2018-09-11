@@ -1,5 +1,5 @@
 # no_named_game
-## current using
+## current using:
 
 - start server first
 - start one or more client
