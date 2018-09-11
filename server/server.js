@@ -90,16 +90,3 @@ server.on('error', (error) => {
 server.listen(3000, '127.0.0.1', () => {
   console.log('server on ', server.address())
 })
-<<<<<<< HEAD
-
-//<<<<<<< HEAD
-function broadcast(message) {
-  clients.map((client) => {
-      client.write(JSON.stringify(message));
-      })
-  }
-//=======
-
-//>>>>>>> master
-=======
->>>>>>> edit
