@@ -1,49 +1,15 @@
-const net = require('net')
-let client
-
-document.getElementById("hide").style.display = "none";
-
+// Canvas here
 function main() {
-  let canvas = document.createElement('canvas');
+  const canvas = document.querySelector('#canvas');
+  const gl = canvas.getContext('webgl');
 
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight - 4;
+  if (!gl) {
+    alert("Unable to initialize WebGL. Your browser or machine may not support it.");
+    return;
+  }
 
-  document.body.appendChild(canvas);
-
-  let gl = canvas.getContext('webgl');
-
-  gl.clearColor(1, 0, 1, 1);
+  // Setze clear color auf schwarz, vollständig sichtbar
+  gl.clearColor(0.0, 0.0, 0.0, 1.0);
+  // Lösche den color buffer mit definierter clear color
   gl.clear(gl.COLOR_BUFFER_BIT);
-}
-
-function connect() {
-  client = new net.Socket()
-
-  console.log("joining")
-  client.connect(3000, '127.0.0.1', () => {
-    // Einfach damit es schöner ausschaut
-    document.getElementById("connect").innerHTML = "Connected"
-    document.getElementById("disconnect").innerHTML = "Disconnect";
-  })
-
-  client.setEncoding('utf8')
-  client.on('data', (data) => {
-    let msg = document.createElement("p")
-    msg.innerHTML = data
-    document.getElementById("content").appendChild(msg)
-  })
-}
-
-function disconnect() {
-  client.end()
-  client.destroy()
-  // Einfach damit es schöner ausschaut
-  document.getElementById("disconnect").innerHTML = "Disconnected";
-  document.getElementById("connect").innerHTML = "Connect";
-}
-
-function send() {
-  let msg = document.getElementById("text").value
-  client.write('{"Message": "' + msg + '"}')
 }
