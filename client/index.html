@@ -3,11 +3,11 @@
 
 <head>
   <meta charset="UTF-8">
-  <script src="handle_server_conection.js" charset="utf-8"></script>
+  <script src="./public/javascript/handle_server_conection.js" charset="utf-8"></script>
   <script src="./public/javascript/main.js" charset="utf-8"></script>
 </head>
 
-<body onload="main();">
+<body>
   <div class="">
     <button onclick="connect()" id="connect"> Connect </button>
     <button onclick="disconnect()" id="disconnect"> Disconnect </button>
@@ -18,20 +18,21 @@
     <input id="command" type="text">
 
   </div>
-  <br>
-  <div class="">
-    <label>data</label>
-    <input id="data" type="text">
+    <br>
+    <div class="">
+      <label>data</label>
+      <input id="data" type="text">
 
   </div>
-  <br>
-  <div class="">
-    <button onclick="sending()">Send</button>
-    <p id="delay"></p>
-  </div>
-  <br>
-  <div id="content"></div>
-  <canvas id="canvas" width="300" height="300"></canvas>
+      <br>
+      <div class="">
+        <button onclick="sending()">Send</button>
+        <p id="delay"></p>
+      </div>
+      <br>
+      <div id="content"></div>
+
+      <canvas id="canvas" width="300" height="300"></canvas>
 </body>
 
 </html>

@@ -1,4 +1,3 @@
-// Canvas here
 function main() {
   const canvas = document.querySelector('#canvas');
   const gl = canvas.getContext('webgl');
