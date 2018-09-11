@@ -41,6 +41,6 @@ server.listen(3000, '127.0.0.1', () => {
 
 function broadcast(message) {
   clients.map((client) => {
-      client.write(JSON.stringify(message)
+      client.write(JSON.stringify(message));
       })
   }
