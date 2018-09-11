@@ -11,8 +11,15 @@ function connect() {
 
   client.setEncoding('utf8')
   client.on('data', (data) => {
+    let parseddata = JSON.parse(data)
+    if (parseddata.hasOwnProperty('timestamp')) {
+      let recived = Date.now()
+      let sended = parseInt(parseddata['timestamp'])
+      let delay = recived - sended
+      console.log(`delay : ${delay}ms`)
+    }
     let msg = document.createElement("p")
-    msg.innerHTML = data
+    msg.innerHTML = JSON.stringify(parseddata)
     document.getElementById("content").appendChild(msg)
   })
 }
