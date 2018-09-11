@@ -34,17 +34,18 @@ let server = net.createServer((socket) => {
 
       if (data.hasOwnProperty('message')) {
         //handle Message event
+        broadcast(data['Message'])
       }
       if (data.hasOwnProperty('setname')) {
         //handle setname event
         player_name = data['setname']
-        players[socket_address]["name"] = player_name
+        players[socket_address]['name'] = player_name
         //broadcast(`{"player": "${playername} joined the game"}`)
       }
       if (data.hasOwnProperty('join')) {
         //give the player start coordinates
-        players[socket_address]["x"] = 50
-        players[socket_address]["y"] = 50
+        players[socket_address]['x'] = 50
+        players[socket_address]['y'] = 50
       }
       if (data.hasOwnProperty('move')) {
         //handle move from player, direction is given in data section
