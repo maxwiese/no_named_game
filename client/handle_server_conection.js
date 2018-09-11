@@ -38,5 +38,6 @@ function sending() {
 
 //send some command
 function send(command, data) {
-  client.write(`{"${command}": "${data}"}`)
+  let timestamp = Date.now()
+  client.write(`{"${command}": "${data}", "timestamp": "${timestamp}"}`)
 }
