@@ -1,5 +1,6 @@
 const net = require('net')
 const player_actions = require('./player_actions')
+const global_actions = require('./global_actions')
 
 let clients = []
 let players = {}
@@ -20,6 +21,13 @@ let server = net.createServer((socket) => {
   //set the datatype to utf-8
   socket.setEncoding('utf8')
 
+  //handle error event
+  socket.on('error', (error) => {
+    if (error.code === 'ECONNRESET') {
+      socket.destroy()
+    }
+  })
+
   //handle disconnect event
   socket.on('close', () => {
     console.log("exited")
@@ -34,13 +42,13 @@ let server = net.createServer((socket) => {
 
       if (data.hasOwnProperty('message')) {
         //handle Message event
-        broadcast(data['Message'])
+        global_actions.broadcast(clients, data)
       }
       if (data.hasOwnProperty('setname')) {
         //handle setname event
         player_name = data['setname']
         players[socket_address]['name'] = player_name
-        //broadcast(`{"player": "${playername} joined the game"}`)
+        //global_actions.broadcast(`{"player": "${playername} joined the game"}`)
       }
       if (data.hasOwnProperty('join')) {
         //give the player start coordinates
@@ -54,7 +62,7 @@ let server = net.createServer((socket) => {
       }
       if (data.hasOwnProperty('update')) {
         //send updatet data to all clients
-        broadcast(players)
+        global_actions.broadcast(clients, players)
       }
 
     } catch (e) {
@@ -83,9 +91,4 @@ server.listen(3000, '127.0.0.1', () => {
   console.log('server on ', server.address())
 })
 
-//function to broadcast to all players
-function broadcast(message) {
-  clients.map((client) => {
-    client.write(JSON.stringify(message))
-  })
-}
+
