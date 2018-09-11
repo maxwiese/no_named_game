@@ -6,21 +6,6 @@ let players = {}
 
 //create the server
 let server = net.createServer((socket) => {
-<<<<<<< HEAD
-  console.log(socket.remoteAddress + ':' + socket.remotePort)
-  clients.push(socket)
-
-  socket.setEncoding('utf8')
-
-  socket.on('data', (data) => {
-    try {
-      data = JSON.parse(data)
-      if (data.hasOwnProperty('Message')) {
-        broadcast(data)
-      } else {
-        console.log(data)
-      }
-=======
   let socket_address = `${socket.remoteAddress}${socket.remotePort}`
 
   //print out client adress
@@ -70,7 +55,6 @@ let server = net.createServer((socket) => {
         //send updatet data to all clients
         broadcast(players)
       }
->>>>>>> dev_markus
 
     } catch (e) {
       throw e
@@ -80,11 +64,8 @@ let server = net.createServer((socket) => {
 
 // errorhandling
 server.on('error', (error) => {
-<<<<<<< HEAD
-=======
 
   //handle error if port in use (restart server every secound)
->>>>>>> dev_markus
   if (error.code === 'EADDRINUSE') {
     console.log('Host address is in use, retryning ...')
     setTimeout(() => {
@@ -104,12 +85,6 @@ server.listen(3000, '127.0.0.1', () => {
 //function to broadcast to all players
 function broadcast(message) {
   clients.map((client) => {
-<<<<<<< HEAD
-      client.write(JSON.stringify(message)
-      })
-  }
-=======
     client.write(JSON.stringify(message))
   })
 }
->>>>>>> dev_markus
