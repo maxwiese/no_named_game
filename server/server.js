@@ -51,7 +51,7 @@ let server = net.createServer((socket) => {
         //global_actions.broadcast(`{"player": "${playername} joined the game"}`)
       }
       if (data.hasOwnProperty('join')) {
-        //give the player start coordinates
+        //give the player start coordinate
         players[socket_address]['x'] = 50
         players[socket_address]['y'] = 50
       }
@@ -90,6 +90,7 @@ server.on('error', (error) => {
 server.listen(3000, '127.0.0.1', () => {
   console.log('server on ', server.address())
 })
+<<<<<<< HEAD
 
 //<<<<<<< HEAD
 function broadcast(message) {
@@ -100,3 +101,5 @@ function broadcast(message) {
 //=======
 
 //>>>>>>> master
+=======
+>>>>>>> edit
