@@ -3,11 +3,24 @@
 
 <head>
   <meta charset="UTF-8">
-  <script src="./public/javascript/handle_server_conection.js" charset="utf-8"></script>
+  
   <link rel="stylesheet" href="./public/stylesheet/style.css">
 </head>
 
-<body onload="main()">
+<body>
+  
+  <button onclick="connect()" id="connect"> Connect </button>
+  <button onclick="disconnect()" id="disconnect"> Disconnect </button>
+  <button onclick="setname()" id="setname"> Set Name </button>
+  <button onclick="join()" id="join"> Join </button>
+  <div id="canvas">
+
+  </div>
+  <script src="./public/javascript/handle_server_conection.js"></script>
+  <script src="./public/javascript/handle_server_response.js"></script>
+  <script src="./public/javascript/mainframe.js"></script>
+  <script src="./public/javascript/eventlistener.js"></script>
+  <!--
   <div class="">
     <button onclick="connect()" id="connect"> Connect </button>
     <button onclick="disconnect()" id="disconnect"> Disconnect </button>
@@ -32,14 +45,14 @@
   <br>
   <div id="content"></div>
 
-
+  
   <canvas id="canvas" width="600px" height="600px"></canvas>
-    <!-- Your browser does not support HTML5 -->
+  Your browser does not support HTML5
   
   <br>
   <i>Demo is above this text</i>
   <script src="./public/javascript/main.js" charset="utf-8"></script>
-
+  -->
 </body>
 
 </html>
