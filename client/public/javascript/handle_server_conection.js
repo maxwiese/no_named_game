@@ -18,9 +18,12 @@ function connect() {
       let delay = recived - sended
       console.log(`delay : ${delay}ms`)
     }
-    let msg = document.createElement("p")
+
+    handle_response(parseddata)
+
+/*     let msg = document.createElement("p")
     msg.innerHTML = JSON.stringify(parseddata)
-    document.getElementById("content").appendChild(msg)
+    document.getElementById("content").appendChild(msg) */
   })
 }
 
@@ -28,6 +31,15 @@ function connect() {
 function disconnect() {
   client.end()
   client.destroy()
+}
+
+function setname() {
+  let name = 'max'
+  send('setname', name)
+}
+
+function join() {
+  send('join', 'x')
 }
 
 function sending() {

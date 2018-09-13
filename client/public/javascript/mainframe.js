@@ -2,8 +2,9 @@ let  three = require("three");
 
 function animate() {
     requestAnimationFrame(animate)
-    cube.rotation.x += 0.01
-    cube.rotation.y += 0.01
+    //console.log(cube.position)
+    //cube.rotation.x += 0.01
+    //cube.rotation.y += 0.01
     renderer.render(scene, camera)
 }
 
@@ -12,7 +13,7 @@ let camera = new three.PerspectiveCamera(75, window.innerWidth / window.innerHei
 
 let renderer = new three.WebGLRenderer()
 renderer.setSize(window.innerWidth-100, window.innerHeight-100)
-document.body.appendChild(renderer.domElement)
+document.getElementById('canvas').appendChild(renderer.domElement)
 
 let geometrie = new three.BoxGeometry(1, 1, 1)
 let material = new three.MeshBasicMaterial({color: 0xff0000})

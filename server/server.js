@@ -52,8 +52,8 @@ let server = net.createServer((socket) => {
       }
       if (data.hasOwnProperty('join')) {
         //give the player start coordinate
-        players[socket_address]['x'] = 50
-        players[socket_address]['y'] = 50
+        players[socket_address]['x'] = 0
+        players[socket_address]['y'] = 0
       }
       if (data.hasOwnProperty('move')) {
         //handle move from player, direction is given in data section

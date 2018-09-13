@@ -3,12 +3,23 @@
 
 <head>
   <meta charset="UTF-8">
-  <script src="./public/javascript/handle_server_conection.js" charset="utf-8"></script>
+  
   <link rel="stylesheet" href="./public/stylesheet/style.css">
 </head>
 
 <body>
+  
+  <button onclick="connect()" id="connect"> Connect </button>
+  <button onclick="disconnect()" id="disconnect"> Disconnect </button>
+  <button onclick="setname()" id="setname"> Set Name </button>
+  <button onclick="join()" id="join"> Join </button>
+  <div id="canvas">
+
+  </div>
+  <script src="./public/javascript/handle_server_conection.js"></script>
+  <script src="./public/javascript/handle_server_response.js"></script>
   <script src="./public/javascript/mainframe.js"></script>
+  <script src="./public/javascript/eventlistener.js"></script>
   <!--
   <div class="">
     <button onclick="connect()" id="connect"> Connect </button>
