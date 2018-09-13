@@ -6,7 +6,8 @@ function connect() {
 
   console.log("joining")
   client.connect(3000, '127.0.0.1', () => {
-    document.getElementById("connect").innerHTML = "Connected";
+    // Braucht man nicht unbediengt
+    //document.getElementById("connect").innerHTML = "Connected";
   })
 
   client.setEncoding('utf8')
@@ -29,6 +30,7 @@ function connect() {
 
 //function to disconnect
 function disconnect() {
+  window.location = 'index.html';
   client.end()
   client.destroy()
 }

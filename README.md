@@ -16,3 +16,4 @@
     - append id in the send command for server recognition 
 ### matthias
 - learning WebGL
+- styling
