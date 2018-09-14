@@ -1,6 +1,16 @@
 const net = require('net')
 let client
 
+
+function connect_all(){
+  connect()
+  setTimeout(() => {
+    setname()
+    join()
+    alert("now you can move")
+  }, 1000)
+}
+
 function connect() {
   client = new net.Socket()
 
