@@ -16,6 +16,7 @@
     function hideCanvas() {
       document.getElementById('connect').style.display = 'none';
       document.getElementById('setname').style.display = 'none';
+      document.getElementById('name').style.display = 'none';
       document.getElementById('join').style.display = 'none';
 
       $("#connect").fadeIn("slow");
@@ -23,10 +24,12 @@
       $(".btncon").click(function () {
         $("#connect").fadeOut("slow");
         $("#setname").fadeIn("slow");
+        $("#name").fadeIn("slow");
       });
 
       $(".btnset").click(function () {
         $("#setname").fadeOut("slow");
+        $("#name").fadeOut("slow");
         $("#join").fadeIn("slow");
       });
 
@@ -42,6 +45,7 @@
 <body onload="hideCanvas()">
   <button class="btncon" onclick="connect()" id="connect"> Connect </button><br>
   <button class="btnset" onclick="setname()" id="setname"> Set Name </button><br>
+  <input class="name" type="text" id="name"><br>
   <button class="btnjoin" onclick="join()" id="join"> Join </button><br>
 
   <!-- 
