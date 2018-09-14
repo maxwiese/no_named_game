@@ -1,0 +1,23 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "server for no_named_game",
+  "main": "app.js",
+  "scripts": {
+    "start": "electron frontend/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/maxwiese/no_named_game"
+  },
+  "keywords": [
+    "server",
+    "multiplayer",
+    "gamedevelopmentment"
+  ],
+  "author": "Markus Hölzle",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^2.0.9"
+  }
+}
