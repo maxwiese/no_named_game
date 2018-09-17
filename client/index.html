@@ -1,15 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-        <script src="./public/javascript/handle_server_response.js"></script>
-        <script src="./public/javascript/handle_server_connection.js"></script>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <script src="./public/javascript/handle_server_response.js"></script>
+    <script src="./public/javascript/handle_server_connection.js"></script>
+    <link rel="stylesheet" href="./public/stylesheet/index.css">
+    <script>
+    function myFunction() {
+        var w = window.innerWidth;
+        var h = window.innerHeight;
+      
+        document.getElementById('container').style.width = w - 200 + 'px';
+        document.getElementById('container').style.height = h - 100 + 'px';
+    } 
+    </script>
+</head>
 
-    <body>
-        <div>
+<body onresize="myFunction()">
+    <div class="header">
+        <a href="#" class="lefttext">Server Connection</a>
+        <a href="#" class="lefttext">Ping</a>
+        <a href="#" class="righttext">Einstellung</a>
+        <a href="#" class="righttext">Profil</a>
+    </div>
+
+    <div class="container" id="container">
+       <p style="color: white;">Seinen Charackter sehen und bearbeiten können</p> 
+    </div>
+
+    <div class="footer">
+        <a href="#" class="footertxt">Zur Lobby</a>
+    </div>
+    <!-- <div>
             Header: 
             links: Server Connection, Delayzeit
             rechts: Profil (bearbeiten), Einstellungen
@@ -21,7 +44,8 @@
         <div>
             Footer:
             zur lobby (name zum server übermitteln, ausgrauen falls server nicht connected)
-        </div>
-    </body>
+        </div>-->
+    <script>myFunction()</script>
+</body>
 
 </html>
