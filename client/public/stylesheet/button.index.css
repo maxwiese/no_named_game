@@ -22,7 +22,7 @@
 
 .name {
     position: absolute;
-    top: 53%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
@@ -35,11 +35,12 @@
     border-radius: 5px;
     text-align: center;
     width: 140px;
+    margin-top: 70px;
 }
 
 .btnset {
     position: absolute;
-    top: 47%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);

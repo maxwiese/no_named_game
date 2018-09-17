@@ -2,9 +2,9 @@ let  three = require("three");
 
 function animate() {
     requestAnimationFrame(animate)
-    //console.log(cube.position)
-    //cube.rotation.x += 0.01
-    //cube.rotation.y += 0.01
+    console.log(cube.position)
+    cube.rotation.x += 0.01
+    cube.rotation.y += 0.01
     renderer.render(scene, camera)
 }
 
