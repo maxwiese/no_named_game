@@ -2,6 +2,8 @@ const net = require('net')
 const player_actions = require('./player_actions')
 const global_actions = require('./global_actions')
 
+const interval = 500
+
 let clients = []
 let players = {}
 
@@ -89,4 +91,7 @@ server.on('error', (error) => {
 //start the server
 server.listen(3000, '127.0.0.1', () => {
   console.log('server on ', server.address())
+  setInterval(() => {
+    global_actions.broadcast(clients, players)
+  }, interval)
 })
