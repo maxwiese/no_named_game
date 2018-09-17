@@ -1,27 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-        <script src="./public/javascript/handle_server_response.js"></script>
-        <script src="./public/javascript/handle_server_connection.js"></script>
-    </head>
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="./public/javascript/global_variables.js" charset="utf-8"></script>
+  <script src="./public/javascript/handle_server_response.js"></script>
+  <script src="./public/javascript/handle_server_connection.js"></script>
+</head>
 
-    <body>
-        <div>
-            Header: 
-            links: Server Connection, Delayzeit
-            rechts: Profil (bearbeiten), Einstellungen
-        </div>
-        <div>
-            Body:
-            Seinen Charackter sehen und bearbeiten können
-        </div>
-        <div>
-            Footer:
-            zur lobby (name zum server übermitteln, ausgrauen falls server nicht connected)
-        </div>
-    </body>
+<body onload="connect()">
+
+  <script type="text/javascript">
+    const Phaser = require('phaser')
+
+    var config = {
+      type: Phaser.AUTO,
+      width: 800,
+      height: 600,
+      physics: {
+        default: 'arcade',
+        arcade: {
+          gravity: {
+            y:200
+          },
+          debug: false
+        }
+      },
+      scene: {
+        preload: preload,
+        create: create,
+        update: update
+      }
+    }
+
+    let game = new Phaser.Game(config)
+    let ping
+
+    function preload () {
+    }
+
+    function create () {
+      ping = this.add.text(16, 16, 'ping: 0', {fontsize: '32px', fill: 0xff0000})
+    }
+
+    function update () {
+      ping.setText('ping')
+    }
+
+  </script>
+<!--
+  <div>
+    <p> status: <span id="status"> disconnected </span></p>
+    <p> ping: <span id="delay"> - </span></p>
+    Header:
+    links: Server Connection, Delayzeit
+    rechts: Profil (bearbeiten), Einstellungen
+  </div>
+  <div>
+    Body:
+    Seinen Charackter sehen und bearbeiten können
+  </div>
+  <div>
+    Footer:
+    zur lobby (name zum server übermitteln, ausgrauen falls server nicht connected)
+    <button>play</button>
+  </div> -->
+</body>
 
 </html>

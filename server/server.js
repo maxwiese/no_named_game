@@ -26,12 +26,14 @@ let server = net.createServer((socket) => {
   //handle error event
   socket.on('error', (error) => {
     if (error.code === 'ECONNRESET') {
+      delete players[socket_address]
       socket.destroy()
     }
   })
 
   //handle disconnect event
   socket.on('close', () => {
+    delete players[socket_address]
     console.log("exited")
   })
 
