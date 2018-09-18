@@ -20,6 +20,11 @@
 </head>
 
 <body onresize="resize()" onload="connect()">
+    <script>
+        if(connection === true) {
+            send(state, mainmenu)
+        }
+    </script>
     <div class="header">
         <a href="#" class="lefttext" id="connection"><i class="material-icons">wifi_off</i></a>
         <a href="#" class="lefttext" id="ping"></a>
@@ -32,7 +37,7 @@
     </div>
 
     <div class="footer">
-        <a href="#" class="footertxt">Zur Lobby</a>
+        <a href="lobby.html" class="footertxt">Zur Lobby</a>
     </div>
     <script>resize()</script>
 </body>

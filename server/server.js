@@ -68,6 +68,9 @@ let server = net.createServer((socket) => {
         //send updatet data to all clients
         global_actions.broadcast(clients, players)
       }
+      if (data.hasOwnProperty('state')) {
+        players[socket_address]['state'] = data['state']
+      }
 
     } catch (e) {
       throw e
