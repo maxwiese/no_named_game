@@ -3,65 +3,117 @@
 
 <head>
     <meta charset="UTF-8">
-    <script src="./public/javascript/handle_server_conection.js"></script>
-    <script src="./public/javascript/handle_server_response.js"></script>
+    <!--<script src="./public/javascript/handle_server_connection.js"></script>
+    <script src="./public/javascript/handle_server_response.js"></script>-->
     <!-- Phaser Import -->
     <script src="http://labs.phaser.io/build/phaser-arcade-physics.min.js"></script>
     <style>
-    body {
-        margin: 0;
-    }
+        body {
+            margin: 0;
+        }
     </style>
 </head>
 
 <body>
-    <!--<h1>Game</h1>-->
     <script>
-        // Phaser
         var config = {
-            type: Phaser.AUTO,
-            width: window.innerWidth,
-            height: window.innerHeight,
+            type: Phaser.WEBGL,
+            width: 800,
+            height: 600,
             physics: {
                 default: 'arcade',
-                arcade: {
-                    gravity: { y: 200 }
+                arcadeL: {
+                    gravity: { y: 300 },
+                    debug: false
                 }
             },
             scene: {
                 preload: preload,
-                create: create
+                create: create,
+                update: update
             }
         };
 
-        var game = new Phaser.Game(config);
+        // Variablen
+        var platforms
+        var player
+        var cursors
+
+        var game = new Phaser.Game(config)
 
         function preload() {
-            this.load.setBaseURL('http://labs.phaser.io');
-
-            //this.load.image('sky', 'assets/skies/space3.png');
-            this.load.image('logo', 'assets/sprites/phaser3-logo.png');
-            this.load.image('red', 'assets/particles/red.png');
+            this.load.image('sky', './public/images/sky.png')
+            this.load.image('ground', './public/images/platform.png')
+            this.load.image('star', './public/images/star.png')
+            this.load.image('bomb', './public/images/bomb.png')
+            this.load.spritesheet('dude', './public/images/dude.png', { frameWidth: 32, frameHeight: 48 })
         }
 
         function create() {
-            //this.add.image(400, 300, 'sky');
+            // World
+            this.add.image(400, 300, 'sky')
 
-            var particles = this.add.particles('red');
+            platforms = this.physics.add.staticGroup()
+            platforms.create(400, 568, 'ground').setScale(2).refreshBody()
 
-            var emitter = particles.createEmitter({
-                speed: 100,
-                scale: { start: 1, end: 0 },
-                blendMode: 'ADD'
+            platforms.create(600, 400, 'ground');
+            platforms.create(50, 250, 'ground');
+            platforms.create(750, 220, 'ground');
+            
+            // Player
+            player = this.physics.add.sprite(100, 450, 'dude')
+
+            player.setBounce(0.2)
+            player.setCollideWorldBounds(true)
+            player.body.setGravityY(300)
+
+            this.anims.create({
+                key: 'left',
+                frames: this.anims.generateFrameNumbers('dude', { start: 0, end: 3 }),
+                frameRate: 10,
+                repeat: -1,
+            })
+
+            this.anims.create({
+                key: 'turn',
+                frames: [{ key: 'dude', frame: 4 }],
+                frameRate: 20
             });
 
-            var logo = this.physics.add.image(400, 100, 'logo');
 
-            logo.setVelocity(100, 200);
-            logo.setBounce(1, 1);
-            logo.setCollideWorldBounds(true);
+            this.anims.create({
+                key: 'right',
+                frames: this.anims.generateFrameNumbers('dude', { start: 5, end: 8 }),
+                frameRate: 10,
+                repeat: -1
+            })
 
-            emitter.startFollow(logo);
+            // Event Listener
+            cursors = this.input.keyboard.createCursorKeys()
+
+            // Collison
+            this.physics.add.collider(player, platforms)
+        }
+
+        function update() {
+            if (cursors.left.isDown) {
+
+                
+                player.setVelocityX(-160)
+                player.anims.play('left', true)
+            } else if (cursors.right.isDown) {
+                player.setVelocityX(160)
+                player.anims.play('right', true)
+            } else {
+                player.setVelocityX(0)
+                player.anims.play('turn')
+            }
+
+
+            if (cursors.up.isDown && player.body.touching.down) {
+                player.setVelocityY(-330)
+            }
+
         }
     </script>
 </body>

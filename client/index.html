@@ -6,20 +6,14 @@
     <script src="./public/javascript/global_variables.js" charset="utf-8"></script>
     <script src="./public/javascript/handle_server_response.js"></script>
     <script src="./public/javascript/handle_server_connection.js"></script>
+    <script src="http://labs.phaser.io/build/phaser-arcade-physics.min.js"></script>
+
     <link rel="stylesheet" href="./public/stylesheet/index.css">
     <link rel="stylesheet" href="./public/stylesheet/icons/google-icon.css">
-    <script>
-    function resize() {
-        var w = window.innerWidth;
-        var h = window.innerHeight;
-      
-        document.getElementById('container').style.width = w - 200 + 'px';
-        document.getElementById('container').style.height = h - 100 + 'px';
-    } 
-    </script>
+
 </head>
 
-<body onresize="resize()" onload="connect()">
+<body onload="connect()">
     <div class="header">
         <a href="#" class="lefttext" id="connection">Server Connection</a>
         <a href="#" class="lefttext" id="ping">Ping</a>
@@ -28,13 +22,12 @@
     </div>
 
     <div class="container" id="container">
-       <Button onclick="window.location = 'game.html'">Start Game</Button>
+       
     </div>
 
     <div class="footer">
-        <a href="#" class="footertxt">Zur Lobby</a>
+        <a href="game.html" class="footertxt">Zur Lobby</a>
     </div>
-    <script>resize()</script>
 </body>
 
 </html>
