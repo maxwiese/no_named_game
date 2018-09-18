@@ -8,16 +8,27 @@
         <script src="./public/javascript/global_variables.js" charset="utf-8"></script>
         <script src="./public/javascript/handle_server_response.js"></script>
         <script src="./public/javascript/handle_server_connection.js"></script>
+        <link rel="stylesheet" href="./public/stylesheet/index.css">
         <link rel="stylesheet" href="./public/stylesheet/icons/google-icon.css">
         </script>
     </head>
 <body>
     <script>
-        send('setname', 'The_Admin')
+        send('setname', player_name)
         send('state', 'lobby')
     </script>
-    <a href="#" class="lefttext" id="ping"></a>
+    <div class="header">
+        <a href="#" class="lefttext" id="connection"><i class="material-icons"></i></a>
+        <a href="#" class="lefttext" id="ping"></a>
+    </div>
+    <!--hier bitte noch css cool machen-->
+    <div class="content">
+        <table>
+            <tbody id="players">
 
+            </tbody>
+        </table>
+    </div>
     <!--
         header -> map selection / voting
         content ->  edit own player 
