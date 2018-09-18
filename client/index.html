@@ -8,7 +8,7 @@
     <script src="./public/javascript/handle_server_connection.js"></script>
     <link rel="stylesheet" href="./public/stylesheet/index.css">
     <script>
-    function myFunction() {
+    function resize() {
         var w = window.innerWidth;
         var h = window.innerHeight;
       
@@ -18,10 +18,10 @@
     </script>
 </head>
 
-<body onresize="myFunction()">
+<body onresize="resize()" onload="connect()">
     <div class="header">
-        <a href="#" class="lefttext">Server Connection</a>
-        <a href="#" class="lefttext">Ping</a>
+        <a href="#" class="lefttext" id="connection">Server Connection</a>
+        <a href="#" class="lefttext" id="ping">Ping</a>
         <a href="#" class="righttext">Einstellung</a>
         <a href="#" class="righttext">Profil</a>
     </div>
@@ -33,59 +33,7 @@
     <div class="footer">
         <a href="#" class="footertxt">Zur Lobby</a>
     </div>
-
-    <script type="text/javascript">
-        const Phaser = require('phaser')
-    
-        var config = {
-          type: Phaser.AUTO,
-          width: 800,
-          height: 600,
-          physics: {
-            default: 'arcade',
-            arcade: {
-              gravity: {
-                y:200
-              },
-              debug: false
-            }
-          },
-          scene: {
-            preload: preload,
-            create: create,
-            update: update
-          }
-        }
-    
-        let game = new Phaser.Game(config)
-        let ping
-    
-        function preload () {
-        }
-    
-        function create () {
-          ping = this.add.text(16, 16, 'ping: 0', {fontsize: '32px', fill: 0xff0000})
-        }
-    
-        function update () {
-          ping.setText('ping')
-        }
-    
-      </script>
-    <!-- <div>
-            Header: 
-            links: Server Connection, Delayzeit
-            rechts: Profil (bearbeiten), Einstellungen
-        </div>
-        <div>
-            Body:
-            Seinen Charackter sehen und bearbeiten können
-        </div>
-        <div>
-            Footer:
-            zur lobby (name zum server übermitteln, ausgrauen falls server nicht connected)
-        </div>-->
-    <script>myFunction()</script>
+    <script>resize()</script>
 </body>
 
 </html>

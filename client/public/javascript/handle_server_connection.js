@@ -13,7 +13,8 @@ function disconnect() {
 }
 
 ipcRenderer.on('connected', (event, args) => {
-    connection = true
+    document.getElementById('connection').innerHTML = "connected"
+    
     console.log(`client connected`)
 })
 
@@ -22,9 +23,7 @@ ipcRenderer.on('recived', (event, args) => {
         let recived = Date.now()
         let sended = parseInt(args['timestamp'])
         let delay = recived - sended
-        //if (ping != undefined)
-        //ping.setText('ping: '+ delay)
-        //console.log(`delay : ${delay}ms`)
+        document.getElementById('ping'). innerHTML = delay + ' ms'
     }
     handle_response(args)
 })
