@@ -13,9 +13,20 @@ function disconnect() {
 }
 
 ipcRenderer.on('connected', (event, args) => {
-    document.getElementById('connection').innerHTML = "connected"
+    document.getElementById('connection').innerHTML = '<i class="material-icons">wifi</i>'
     
     console.log(`client connected`)
+})
+
+ipcRenderer.on('error', (event, args) => {
+    console.log(args.code)
+    if (args.code === 'ECONNREFUSED' || args.code === 'ECONNRESET') {
+        setTimeout(() => {
+            ipcRenderer.send('connect')
+          }, 1000)
+       document.getElementById('connection').innerHTML = '<i class="material-icons">wifi_off</i>'
+       document.getElementById('ping').innerHTML = '' 
+    }
 })
 
 ipcRenderer.on('recived', (event, args) => {
