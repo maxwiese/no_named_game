@@ -12,6 +12,11 @@ html, body {
     text-align: center;
 }
 
+.content {
+    position: fixed;
+    top: 200px;
+}
+
 .footer {
     position: fixed;
     bottom: 0;

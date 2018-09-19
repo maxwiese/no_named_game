@@ -40,6 +40,9 @@ ipcMain.on('connect', (event, args) => {
   client.on('data', (data) => {
     event.sender.send('recived', JSON.parse(data))
   })
+  client.on('error', (error) => {
+    event.sender.send('error', error)
+  })
 })
 
 ipcMain.on('disconnect', (event, args) => {

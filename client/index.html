@@ -14,19 +14,26 @@
 </head>
 
 <body onload="connect()">
+<body onresize="resize()" onload="connect()">
+    <script>
+        if(connection === true) {
+            send(state, mainmenu)
+        }
+    </script>
     <div class="header">
-        <a href="#" class="lefttext" id="connection">Server Connection</a>
-        <a href="#" class="lefttext" id="ping">Ping</a>
+        <a href="#" class="lefttext" id="connection"><i class="material-icons">wifi_off</i></a>
+        <a href="#" class="lefttext" id="ping"></a>
         <a href="#" class="righttext"><i class="material-icons" title="Settings">settings</i></a>
         <a href="#" class="righttext"><i class="material-icons" title="Profile">person</i></a>
     </div>
-
+<!--
     <div class="container" id="container">
        
     </div>
+-->
 
     <div class="footer">
-        <a href="game.html" class="footertxt">Zur Lobby</a>
+        <a href="lobby.html" class="footertxt">Zur Lobby</a>
     </div>
 </body>
 
