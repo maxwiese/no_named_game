@@ -38,7 +38,15 @@ ipcMain.on('connect', (event, args) => {
 
   client.setEncoding('utf8')
   client.on('data', (data) => {
-    event.sender.send('recived', JSON.parse(data))
+    let json_data = JSON.parse(data)
+    let action = json_data['action']
+    let timestamp = json_data['timestamp']
+    let players = json_data['players']
+
+    let send_data = players
+
+    event.sender.send(action, send_data)
+    //event.sender.send(, )
   })
   client.on('error', (error) => {
     event.sender.send('error', error)

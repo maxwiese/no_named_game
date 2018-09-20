@@ -24,12 +24,12 @@ ipcRenderer.on('error', (event, args) => {
         setTimeout(() => {
             ipcRenderer.send('connect')
           }, 1000)
-       document.getElementById('connection').innerHTML = '<i class="material-icons">wifi_off</i>'
-       document.getElementById('ping').innerHTML = '' 
+       //document.getElementById('connection').innerHTML = '<i class="material-icons">wifi_off</i>'
+       //document.getElementById('ping').innerHTML = '' 
     }
 })
 
 ipcRenderer.on('recived', (event, args) => {
 
-    handle_response(args)
+    //handle_response(args)
 })
