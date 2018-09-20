@@ -55,9 +55,10 @@ body {
 }
 
 .players {
+    position: relative;
     float: right;
     width: 750px;
-    height: 400px;
+    height: 850px;
     background-color:  #666666;
 }
 
@@ -65,25 +66,12 @@ body {
     position: absolute;
     width: 750px;;
     height: 35px;
-    background-color: red;
+    background-color: grey;
 }
 
 .titletxt {
     color: white;
-    margin-left: 15px;
-    margin: 8px;
-}
-
-.charcard {
-    float: left;
-    margin: 20px 15px 20px 15px;
-    width: 120px;
-    height: 140px;
-    background-color: lightblue;
-}
-
-.cardesc {
-    padding: 2px 16px;
+    margin: 9px;
 }
 
 
@@ -95,20 +83,30 @@ body {
     background-color:  #666666;
 }
 
-.chat {
+.cards {
     margin-top: 50px;
-    position: relative;
-    float: right;
     width: 750px;
-    height: 400px;
-    bottom: 0;
-    background-color:  #666666;
+    height: 380px;
 }
 
+.card {
+    width: 130px;
+    background-color: white;
+    float: left;
+    margin: 10px;
+}
+
+.desc {
+    padding: 2px 16px;
+    text-align: center;
+}
+
+
 .voteimg {
-    position: absolute;
-    top: 20px;
-    left: 25px;
+    position: relative;
+    width: 700px;
+    height: 155px;
+    margin: 20px auto auto auto;
 }
 
 .vote2 {
