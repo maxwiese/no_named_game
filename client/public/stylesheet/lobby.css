@@ -1,0 +1,145 @@
+body {
+    margin: 0;
+}
+
+.header {
+    position: relative;
+    top: 0;
+    height: 44px;
+    width:100%;
+    background-color: #333;
+    text-align: center;
+    z-index: 2;
+}
+
+.lefttext, .righttext {
+    text-decoration: none;
+    color: white;
+    font-size: 17px;
+    padding: 10px 10px;
+}
+
+.righttext:hover, .lefttext:hover {
+    color: grey;
+}
+
+.lefttext {
+    float: left;
+}
+
+.righttext {
+    float: right;
+}
+
+.content {
+    width: 1100px;
+    margin: 20px auto 0px auto;
+}
+
+.ready {
+    float: left;
+    /*height: 200px;
+    width: 300px;*/
+    padding: 50px;
+    text-align: center;
+    background-color: #666666;
+}
+
+.readybtn {
+    width: 200px;
+    height: 50px;
+    border-radius: 2px;
+    border-color:blue;
+    background-color: blue;
+    color: white;
+}
+
+.players {
+    float: right;
+    width: 750px;
+    height: 400px;
+    background-color:  #666666;
+}
+
+.title{
+    position: absolute;
+    width: 750px;;
+    height: 35px;
+    background-color: red;
+}
+
+.titletxt {
+    color: white;
+    margin-left: 15px;
+    margin: 8px;
+}
+
+.charcard {
+    float: left;
+    margin: 20px 15px 20px 15px;
+    width: 120px;
+    height: 140px;
+    background-color: lightblue;
+}
+
+.cardesc {
+    padding: 2px 16px;
+}
+
+
+.character {
+    margin-top: 50px;
+    float: left;
+    width: 300px;
+    height: 650px;
+    background-color:  #666666;
+}
+
+.chat {
+    margin-top: 50px;
+    position: relative;
+    float: right;
+    width: 750px;
+    height: 400px;
+    bottom: 0;
+    background-color:  #666666;
+}
+
+.voteimg {
+    position: absolute;
+    top: 20px;
+    left: 25px;
+}
+
+.vote2 {
+    margin-right: 46px;
+    margin-left: 46px;
+}
+
+.chatwindow {
+    position: absolute;
+    bottom: 0;
+    left: 25px;
+    height: 200px;
+    width: 700px;
+    background-color: lightblue;
+}
+
+.inputfld {
+    position: absolute;
+    bottom: 0;
+    width: 600px;
+    height: 24px;
+}
+
+.sendbtn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border-radius: 2px;
+    border-color:blue;
+    background-color: blue;
+    color: white;
+    height: 30px;
+    width: 70px;
+}

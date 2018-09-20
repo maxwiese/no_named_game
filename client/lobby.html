@@ -1,34 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
-    <!DOCTYPE html>
-    <html lang="en">
-    
-    <head>
-        <meta charset="UTF-8">
-        <script src="./public/javascript/global_variables.js" charset="utf-8"></script>
-        <script src="./public/javascript/handle_server_response.js"></script>
-        <script src="./public/javascript/handle_server_connection.js"></script>
-        <link rel="stylesheet" href="./public/stylesheet/index.css">
-        <link rel="stylesheet" href="./public/stylesheet/icons/google-icon.css">
-        </script>
-    </head>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="./public/javascript/global_variables.js" charset="utf-8"></script>
+    <script src="./public/javascript/handle_server_response.js"></script>
+    <script src="./public/javascript/handle_server_connection.js"></script>
+    <link rel="stylesheet" href="./public/stylesheet/lobby.css">
+    <link rel="stylesheet" href="./public/stylesheet/icons/google-icon.css">
+</head>
+
 <body>
     <script>
         send('setname', player_name)
         send('state', 'lobby')
     </script>
     <div class="header">
-        <a href="#" class="lefttext" id="connection"><i class="material-icons"></i></a>
+        <a href="#" class="lefttext" id="connection"><i class="material-icons">wifi_off</i></a>
         <a href="#" class="lefttext" id="ping"></a>
+        <a href="#" class="righttext"><i class="material-icons" title="Settings">settings</i></a>
+        <a href="#" class="righttext"><i class="material-icons" title="Profile">person</i></a>
     </div>
     <!--hier bitte noch css cool machen-->
     <div class="content">
+        <div class="ready">
+            <button class="readybtn">JOIN</button>
+        </div>
+
+        <div class="players">
+            <div class="title">
+                <p class="titletxt">Lobby</p>
+            </div>
+            <div style="margin-top: 35px;">
+                <div class="charcard">
+                    <img src="./public/images/vote.png" alt="Avatar" style="width:120px; height: 110px;">
+                    <div class="chardesc">
+                        <tbody id="players">
+                        </tbody>
+                    </div>
+                </div>
+
+                <div class="charcard">
+                    <img src="./public/images/vote.png" alt="Avatar" style="width:120px; height: 110px;">
+                    <div class="chardesc">
+                        <tbody id="players">
+                        </tbody>
+                    </div>
+                </div>
+                <div class="charcard">
+                    <img src="./public/images/vote.png" alt="Avatar" style="width:120px; height: 110px;">
+                    <div class="chardesc">
+                        <tbody id="players">
+                        </tbody>
+                    </div>
+                </div>
+                <div class="charcard">
+                    <img src="./public/images/vote.png" alt="Avatar" style="width:120px; height: 110px;">
+                    <div class="chardesc">
+                        <tbody id="players">
+                        </tbody>
+                    </div>
+                </div>
+                <div class="charcard">
+                    <img src="./public/images/vote.png" alt="Avatar" style="width:120px; height: 110px;">
+                    <div class="chardesc">
+                        <tbody id="players">
+                        </tbody>
+                    </div>
+                </div>
+
+                <div class="charcard">
+                    <img src="./public/images/vote.png" alt="Avatar" style="width:120px; height: 110px;">
+                    <div class="chardesc">
+                        <tbody id="players">
+                        </tbody>
+                    </div>
+                </div>
+
+                <div class="charcard">
+                    <img src="./public/images/vote.png" alt="Avatar" style="width:120px; height: 110px;">
+                    <div class="chardesc">
+                        <tbody id="players">
+                        </tbody>
+                    </div>
+                </div>
+                <div class="charcard">
+                    <img src="./public/images/vote.png" alt="Avatar" style="width:120px; height: 110px;">
+                    <div class="chardesc">
+                        <tbody id="players">
+                        </tbody>
+                    </div>
+                </div>
+                <div class="charcard">
+                    <img src="./public/images/vote.png" alt="Avatar" style="width:120px; height: 110px;">
+                    <div class="chardesc">
+                        <tbody id="players">
+                        </tbody>
+                    </div>
+                </div>
+                <div class="charcard">
+                    <img src="./public/images/vote.png" alt="Avatar" style="width:120px; height: 110px;">
+                    <div class="chardesc">
+                        <tbody id="players">
+                        </tbody>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="character">
+
+        </div>
+
+        <div class="chat">
+            <div class="voteimg">
+                <a href=""><img src="./public/images/vote.png" alt="Error" style="width:200px; height: 150px" class="vote1"></a>
+                <a href=""><img src="./public/images/vote.png" alt="Error" style="width:200px; height: 150px" class="vote2"></a>
+                <a href=""><img src="./public/images/vote.png" alt="Error" style="width:200px; height: 150px" class="vote3"></a>
+            </div>
+            <div class="chatwindow">
+                <input class="inputfld" type="text" name="input" id="input">
+                <button class="sendbtn">SEND</button>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--<div class="vote">
+            <p class="votetxt">Vote for a Map!</p>
+            <a href="#"><img src="./public/images/vote.png" alt="Picture not found" class="vote1" style="height: 200px;width: 300px;"></a><br>
+            <a href="#"><img src="./public/images/vote.png" alt="Picture not found" class="vote2" style="height: 200px;width: 300px;"></a><br>
+            <a href="#"><img src="./public/images/vote.png" alt="Picture not found" class="vote3" style="height: 200px;width: 300px;"></a>
+        </div>
         <table>
             <tbody id="players">
-
+                
+                <tr>
+                    <td>Player 1</td>
+                </tr>
+                <tr>
+                    <td>Player 2</td>
+                </tr>
+                <tr>
+                    <td>Player 3</td>
+                </tr>
+                <tr>
+                    <td>Player 4</td>
+                </tr>
+                <tr>
+                    <td>Player 5</td>
+                </tr>
+                <tr>
+                    <td>Player 6</td>
+                </tr>
+                <tr>
+                    <td>Player 7</td>
+                </tr>
+                <tr>
+                    <td>Player 8</td>
+                </tr>
+                <tr>
+                    <td>Player 9</td>
+                </tr>
             </tbody>
         </table>
-    </div>
+    </div>-->
     <!--
         header -> map selection / voting
         content ->  edit own player 
@@ -36,6 +186,6 @@
                     list all players (right)
         footer -> list how manny Player missed, if all player in Lobby => Join button or auto join 
     -->
-    
 </body>
+
 </html>
