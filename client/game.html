@@ -7,17 +7,19 @@
     <script src="./public/javascript/handle_server_response.js"></script>-->
     <!-- Phaser Import -->
     <script src="./public/phaser.js"></script>
-    <style>
-        .container {
-            margin: auto;
-            width: 800px
-        }
-    </style>
+    <link rel="stylesheet" href="./public/stylesheet/game.css">
+    <link rel="stylesheet" href="./public/stylesheet/icons/google-icon.css">
 </head>
 
 <body>
-    <button onclick="window.location = 'lobby.html'" style="position: absolute; top: 10; left: 10;">Back</button>
-    <div id="container"></div>
+    <div class="header">
+        <a href="#" class="lefttext a" id="connection"><i class="material-icons">wifi_off</i></a>
+        <a href="#" class="lefttext a" id="ping" style="padding: 12px;"></a>></a>
+        <a href="#" class="righttext a"><i class="material-icons" title="Settings">settings</i></a>
+        <a href="index.html" class="righttext a"><i class="material-icons" title="Profile">person</i></a>
+    </div>
+
+    <div class="container" id="container"></div>
     <script>
         var config = {
             type: Phaser.WEBGL,
