@@ -5,6 +5,7 @@ function connect() {
 }
 
 function send(command, data) {
+   // console.log('sendfunction fired')
     ipcRenderer.send('send', {'command': command, 'data': data, 'timestamp': Date.now()})
 }
 

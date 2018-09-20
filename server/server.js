@@ -41,6 +41,7 @@ let server = net.createServer((socket) => {
 
   //init eventhandler for some game relevant events
   socket.on('data', (data) => {
+    //socket.pause()
     try {
 
       //parsing incomming data into Json
@@ -58,30 +59,22 @@ let server = net.createServer((socket) => {
       }
       if (data.hasOwnProperty('join')) {
         //give the player start coordinate
-        game['players'][socket_address]['x'] = 0
-        game['players'][socket_address]['y'] = 0
+        game['players'][socket_address]['x'] = 100
+        game['players'][socket_address]['y'] = 100
       }
       if (data.hasOwnProperty('move')) {
         //handle move from player, direction is given in data section
+        direction = JSON.parse(player_actions.move(data['move']))
+        game['players'][socket_address][Object.keys(direction)] += parseInt(direction[Object.keys(direction)])
 
-        string = data['move']
-
-        var properties = string.split(', ');
-        var obj = {};
-        properties.forEach(function (property) {
-          var tup = property.split(':');
-          obj[tup[0]] = tup[1];
-        });
-
-        game['players'][socket_address]['x'] = obj.x
-        game['players'][socket_address]['y'] = obj.y
       }
       if (data.hasOwnProperty('update')) {
+        console.log('update')
         //send updatet data to all clients
         global_actions.broadcast('update', clients, game)
       }
       if (data.hasOwnProperty('gameinit')) {
-        global_actions.broadcast('gameinit', clients, game)
+        global_actions.send('gameinit', socket, game)
       }
       if (data.hasOwnProperty('state')) {
         game['players'][socket_address]['state'] = data['state']

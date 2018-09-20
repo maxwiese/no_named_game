@@ -9,8 +9,11 @@ module.exports = {
     },
 
     // send only to one client
-    send: (client, message) => {
+    send: (action, client, message) => {
+        message['action'] = action
         message['timestamp'] = Date.now()
         client.write(JSON.stringify(message))
     }
+
+    //updateProcess: (socket)
 }
