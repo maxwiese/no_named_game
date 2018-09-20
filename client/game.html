@@ -55,7 +55,7 @@
             this.load.image('ground', './public/images/platform.png');
             this.load.image('star', './public/images/star.png');
             this.load.image('bomb', './public/images/bomb.png');
-            this.load.spritesheet('dude', './public/images/stickman.png', { frameWidth: 32, frameHeight: 32 });
+            this.load.spritesheet('dude', './public/images/player.png', { frameWidth: 256, frameHeight: 256 });
         }
 
         function create() {
@@ -84,7 +84,7 @@
 
             this.anims.create({
                 key: 'left',
-                frames: this.anims.generateFrameNumbers('dude', { start: 7, end: 12 }),
+                frames: this.anims.generateFrameNumbers('dude', { start: 10, end: 14 }),
                 frameRate: 10,
                 repeat: -1
             });
@@ -97,7 +97,7 @@
 
             this.anims.create({
                 key: 'right',
-                frames: this.anims.generateFrameNumbers('dude', { start: 0, end: 5 }),
+                frames: this.anims.generateFrameNumbers('dude', { start: 10, end: 14 }),
                 frameRate: 10,
                 repeat: -1
             });
