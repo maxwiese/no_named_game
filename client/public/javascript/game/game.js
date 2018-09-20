@@ -3,6 +3,7 @@ var config = {
     type: Phaser.WEBGL,
     width: window.innerWidth,
     height: window.innerHeight,
+    parent: 'container',
     physics: {
         default: 'arcade',
         arcade: {
@@ -28,7 +29,7 @@ function preload() {
 
 function create() {
     last_update = (Date.now()/1000)
-    this.add.image(window.innerWidth/2, window.innerHeight/2, 'sky')
+    this.add.image(0, 0, 'sky')
     send('gameinit', 'x')
 
     this.all_players = this.physics.add.group()

@@ -20,7 +20,7 @@ ipcRenderer.on('connected', (event, args) => {
 })
 
 ipcRenderer.on('error', (event, args) => {
-    console.log(args.code)
+    console.log(args)
     if (args.code === 'ECONNREFUSED' || args.code === 'ECONNRESET') {
         setTimeout(() => {
             ipcRenderer.send('connect')
