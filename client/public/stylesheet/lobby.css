@@ -42,16 +42,29 @@ body {
     width: 300px;*/
     padding: 50px;
     text-align: center;
-    background-color: #666666;
+    background-color: #333;
 }
 
 .readybtn {
     width: 200px;
     height: 50px;
-    border-radius: 2px;
-    border-color:blue;
-    background-color: blue;
+    background-color: #4CAF50; /* Green */
+    border: 2px;
     color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.readybtn:hover {
+    border: 1px solid #69ef6e;
+}
+
+.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
 .players {
@@ -59,14 +72,14 @@ body {
     float: right;
     width: 750px;
     height: 850px;
-    background-color:  #666666;
+    background-color:  #333;
 }
 
 .title{
     position: absolute;
     width: 750px;;
     height: 35px;
-    background-color: grey;
+    background-color: #666;
 }
 
 .titletxt {
@@ -80,7 +93,7 @@ body {
     float: left;
     width: 300px;
     height: 650px;
-    background-color:  #666666;
+    background-color:  #333;
 }
 
 .cards {
@@ -104,23 +117,34 @@ body {
 
 .voteimg {
     position: relative;
-    width: 700px;
+    width: 614px;
     height: 155px;
     margin: 20px auto auto auto;
 }
 
-.vote2 {
-    margin-right: 46px;
-    margin-left: 46px;
+.voteborder {
+    border: 1px solid #444
 }
+
+.voteborder:hover{
+    border: 1px solid white;
+}
+
 
 .chatwindow {
     position: absolute;
-    bottom: 0;
+    bottom: 20px;
     left: 25px;
     height: 200px;
     width: 700px;
-    background-color: lightblue;
+    background-color: #333;
+}
+
+.chat {
+    padding: 10px;
+    border: 3px solid #f1f1f1;
+    width: 672px;
+    height: 130px;
 }
 
 .inputfld {
@@ -135,9 +159,18 @@ body {
     bottom: 0;
     right: 0;
     border-radius: 2px;
-    border-color:blue;
-    background-color: blue;
+    border-color:#444;
+    background-color: #444;
     color: white;
     height: 30px;
     width: 70px;
 }
+
+
+.sentbutton:hover {background-color: #555}
+
+.sendbtn:active {
+    background-color: #555;
+    box-shadow: 0 1px #666;
+    transform: translateY(4px);
+  }
