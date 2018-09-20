@@ -47,7 +47,7 @@ ipcMain.on('connect', (event, args) => {
 
 ipcMain.on('disconnect', (event, args) => {
   client.end()
-  client.destroy()
+  //client.destroy()
 })
 
 ipcMain.on('send', (event, args) => {
