@@ -1,41 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
-    <!DOCTYPE html>
-    <html lang="en">
-    
-    <head>
-        <meta charset="UTF-8">
-        <script src="./public/javascript/global_variables.js" charset="utf-8"></script>
-        <script src="./public/javascript/handle_server_response.js"></script>
-        <script src="./public/javascript/handle_server_connection.js"></script>
-        <link rel="stylesheet" href="./public/stylesheet/index.css">
-        <link rel="stylesheet" href="./public/stylesheet/icons/google-icon.css">
-        </script>
-    </head>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="./public/javascript/global_variables.js" charset="utf-8"></script>
+    <script src="./public/javascript/handle_server_response.js"></script>
+    <script src="./public/javascript/handle_server_connection.js"></script>
+    <link rel="stylesheet" href="./public/stylesheet/lobby.css">
+    <link rel="stylesheet" href="./public/stylesheet/icons/google-icon.css">
+</head>
+
 <body>
     <script>
         send('setname', player_name)
         send('state', 'lobby')
     </script>
     <div class="header">
-        <a href="#" class="lefttext" id="connection"><i class="material-icons"></i></a>
-        <a href="#" class="lefttext" id="ping"></a>
+        <a href="#" class="lefttext a" id="connection"><i class="material-icons">wifi_off</i></a>
+        <a href="#" class="lefttext a" id="ping" style="padding: 12px;"></a>></a>
+        <a href="#" class="righttext a"><i class="material-icons" title="Settings">settings</i></a>
+        <a href="index.html" class="righttext a"><i class="material-icons" title="Profile">person</i></a>
     </div>
     <!--hier bitte noch css cool machen-->
     <div class="content">
-        <table>
-            <tbody id="players">
+        <div class="ready">
+            <button class="readybtn" onclick="window.location = 'game.html'">JOIN</button>
+        </div>
 
-            </tbody>
-        </table>
+        <div class="players">
+            <div class="title">
+                <h4 class="titletxt">Lobby</h4>
+            </div>
+            <div class="cards">
+
+                <div class="card">
+                    <img src="./public/images/sky.png" alt="Avatar" style="width:100%">
+                    <div class="desc">
+                        <h4 id="players"></h4>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="./public/images/sky.png" alt="Avatar" style="width:100%">
+                    <div class="desc">
+                        <h4 id="">Player</h4>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="./public/images/sky.png" alt="Avatar" style="width:100%">
+                    <div class="desc">
+                        <h4 id="">Player</h4>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="./public/images/sky.png" alt="Avatar" style="width:100%">
+                    <div class="desc">
+                        <h4 id="">Player</h4>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="./public/images/sky.png" alt="Avatar" style="width:100%">
+                    <div class="desc">
+                        <h4 id="">Player</h4>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="./public/images/sky.png" alt="Avatar" style="width:100%">
+                    <div class="desc">
+                        <h4 id="">Player</h4>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="./public/images/sky.png" alt="Avatar" style="width:100%">
+                    <div class="desc">
+                        <h4 id="">Player</h4>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="./public/images/sky.png" alt="Avatar" style="width:100%">
+                    <div class="desc">
+                        <h4 id="">Player</h4>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="./public/images/sky.png" alt="Avatar" style="width:100%">
+                    <div class="desc">
+                        <h4 id="">Player</h4>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="./public/images/sky.png" alt="Avatar" style="width:100%">
+                    <div class="desc">
+                        <h4 id="">Player</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="voteimg">
+                <a href=""><img src="./public/images/map1.jpg" alt="Error" style="width:200px; height: 150px" class="vote1 voteborder"></a>
+                <a href=""><img src="./public/images/map2.jpg" alt="Error" style="width:200px; height: 150px" class="vote2 voteborder"></a>
+                <a href=""><img src="./public/images/map3.jpg" alt="Error" style="width:200px; height: 150px" class="vote3 voteborder"></a>
+            </div>
+            <div class="chatwindow">
+                <div class="chat">
+                    
+                </div>
+                <input class="inputfld" type="text" name="input" id="input">
+                <button class="sendbtn">SEND</button>
+            </div>
+
+        </div>
+
+        <div class="character">
+
+        </div>
     </div>
-    <!--
-        header -> map selection / voting
-        content ->  edit own player 
-                    display Player (inklusiv profile) from selectet player from player list (left),
-                    list all players (right)
-        footer -> list how manny Player missed, if all player in Lobby => Join button or auto join 
-    -->
-    
 </body>
+
 </html>

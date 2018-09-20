@@ -1,0 +1,179 @@
+body {
+    margin: 0;
+}
+
+.header {
+    position: relative;
+    top: 0;
+    height: 44px;
+    width:100%;
+    background-color: #333;
+    text-align: center;
+    z-index: 2;
+}
+
+.a {
+    text-decoration: none;
+    color: white;
+    font-size: 17px;
+}
+
+.a:hover {
+    color: grey;
+}
+
+.lefttext {
+    float: left;
+    padding: 7px;
+}
+
+.righttext {
+    float: right;
+    padding: 7px;
+}
+
+
+.content {
+    width: 1100px;
+    margin: 20px auto 0px auto;
+}
+
+.ready {
+    float: left;
+    /*height: 200px;
+    width: 300px;*/
+    padding: 50px;
+    text-align: center;
+    background-color: #333;
+}
+
+.readybtn {
+    width: 200px;
+    height: 50px;
+    background-color: #4CAF50; /* Green */
+    border: 2px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.readybtn:hover {
+    border: 1px solid #69ef6e;
+}
+
+.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.players {
+    position: relative;
+    float: right;
+    width: 750px;
+    height: 850px;
+    background-color:  #333;
+}
+
+.title{
+    position: absolute;
+    width: 750px;;
+    height: 35px;
+    background-color: #666;
+}
+
+.titletxt {
+    color: white;
+    margin: 9px;
+}
+
+
+.character {
+    margin-top: 50px;
+    float: left;
+    width: 300px;
+    height: 650px;
+    background-color:  #333;
+}
+
+.cards {
+    margin-top: 50px;
+    width: 750px;
+    height: 380px;
+}
+
+.card {
+    width: 130px;
+    background-color: white;
+    float: left;
+    margin: 10px;
+}
+
+.desc {
+    padding: 2px 16px;
+    text-align: center;
+    height: 60px;
+}
+
+
+.voteimg {
+    position: relative;
+    width: 614px;
+    height: 155px;
+    margin: 20px auto auto auto;
+}
+
+.voteborder {
+    border: 1px solid #444
+}
+
+.voteborder:hover{
+    border: 1px solid white;
+}
+
+
+.chatwindow {
+    position: absolute;
+    bottom: 20px;
+    left: 25px;
+    height: 200px;
+    width: 700px;
+    background-color: #333;
+}
+
+.chat {
+    padding: 10px;
+    border: 3px solid #f1f1f1;
+    width: 672px;
+    height: 130px;
+}
+
+.inputfld {
+    position: absolute;
+    bottom: 0;
+    width: 600px;
+    height: 24px;
+}
+
+.sendbtn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border-radius: 2px;
+    border-color:#444;
+    background-color: #444;
+    color: white;
+    height: 30px;
+    width: 70px;
+}
+
+
+.sentbutton:hover {background-color: #555}
+
+.sendbtn:active {
+    background-color: #555;
+    box-shadow: 0 1px #666;
+    transform: translateY(4px);
+  }
