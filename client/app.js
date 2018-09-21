@@ -6,10 +6,12 @@ let win, client
 app.commandLine.appendSwitch('--ignore-gpu-blacklist');
 
 function createWindow() {
-  win = new BrowserWindow({ width: 800, height: 600, title: 'No Name' })
+  win = new BrowserWindow({ width: 800, height: 600, title: 'No Name', show: false })
   win.loadURL(`file://${__dirname}/index.html`)
   // Open the DevTools.
   //win.webContents.openDevTools()
+  win.once('ready-to-show', () => win.show())
+
   win.on('closed', () => {
 
     win = null
@@ -41,24 +43,25 @@ ipcMain.on('connect', (event, args) => {
     client.on('data', (data) => {
       let json_data
       try {
-         json_data = JSON.parse(data)      
+        json_data = JSON.parse(data)
       } catch (error) {
-        console.log(error) 
+        //console.log(error)
       }
-      
-      let action = json_data['action']
-      let timestamp = json_data['timestamp']
-      let players = json_data['players']
+      if (json_data != undefined) {
+        let action = json_data['action']
+        let timestamp = json_data['timestamp']
+        let players = json_data['players']
 
-      let send_data = players
-      try {
-        event.sender.send(action, send_data)        
-      } catch (error) {
-        console.log(error) 
+        let send_data = players
+        try {
+          event.sender.send(action, send_data)
+        } catch (error) {
+          //console.log(error)
+        }
       }
     })
   } catch (error) {
-    console.error(error)
+    //console.error(error)
   }
 
   client.on('error', (error) => {
@@ -72,7 +75,7 @@ ipcMain.on('disconnect', (event, args) => {
 })
 
 ipcMain.on('get_name', (event, args) => {
-  event.sender.send('name',`${client.localAddress}${client.localPort}`)
+  event.sender.send('name', `${client.localAddress}${client.localPort}`)
 })
 
 ipcMain.on('send', (event, args) => {

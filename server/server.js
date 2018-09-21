@@ -78,7 +78,7 @@ let server = net.createServer((socket) => {
         
         timer = setInterval(() => {
           global_actions.broadcast('update', clients, game)
-        }, 200)
+        }, 100)
       }
 
       if (data.hasOwnProperty('state')) {

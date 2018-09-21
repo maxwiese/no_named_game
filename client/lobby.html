@@ -16,6 +16,11 @@
     <script>
         send('setname', player_name)
         send('state', 'lobby')
+        send('join', player_name)
+
+        function toGame(){
+            window.location = 'game.html'
+        }
     </script>
     <div class="header">
         <a href="#" class="lefttext a" id="connection"><i class="material-icons">wifi_off</i></a>
@@ -26,7 +31,7 @@
     <!--hier bitte noch css cool machen-->
     <div class="content">
         <div class="ready">
-            <button class="readybtn" onclick="window.location = 'game.html'">JOIN</button>
+            <button class="readybtn" onclick="toGame()">JOIN</button>
         </div>
 
         <div class="players">
