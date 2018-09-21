@@ -47,49 +47,54 @@ let server = net.createServer((socket) => {
     try {
 
       //parsing incomming data into Json
-      data = JSON.parse(data)
-
-      if (data.hasOwnProperty('message')) {
-        //handle Message event
-        global_actions.broadcast('message', clients, data)
-      }
-      if (data.hasOwnProperty('setname')) {
-        game['players'][socket_address]['name'] = data['setname']
-        //global_actions.broadcast(`{"player": "${playername} joined the game"}`)
-      }
-      if (data.hasOwnProperty('join')) {
-        //give the player start coordinate
-        game['players'][socket_address]['x'] = 100
-        game['players'][socket_address]['y'] = 100
-      }
-      if (data.hasOwnProperty('move')) {
-        //handle move from player, direction is given in data section
-        direction = JSON.parse(player_actions.move(data['move']))
-        game['players'][socket_address][Object.keys(direction)] += parseInt(direction[Object.keys(direction)])
+      try {
+        data = JSON.parse(data)
+      } catch (error) {
 
       }
-      if (data.hasOwnProperty('update')) {
-        console.log('update')
-        //send updatet data to all clients
-        global_actions.broadcast('update', clients, game)
-      }
-      if (data.hasOwnProperty('gameinit')) {
-        global_actions.send('gameinit', socket, game)
-        
-        timer = setInterval(() => {
+
+      if (data != undefined) {
+        if (data.hasOwnProperty('message')) {
+          //handle Message event
+          global_actions.broadcast('message', clients, data)
+        }
+        if (data.hasOwnProperty('setname')) {
+          game['players'][socket_address]['name'] = data['setname']
+          //global_actions.broadcast(`{"player": "${playername} joined the game"}`)
+        }
+        if (data.hasOwnProperty('join')) {
+          //give the player start coordinate
+          game['players'][socket_address]['x'] = 100
+          game['players'][socket_address]['y'] = 100
+        }
+        if (data.hasOwnProperty('move')) {
+          //handle move from player, direction is given in data section
+          direction = JSON.parse(player_actions.move(data['move']))
+          game['players'][socket_address][Object.keys(direction)] += parseInt(direction[Object.keys(direction)])
+
+        }
+        if (data.hasOwnProperty('update')) {
+          console.log('update')
+          //send updatet data to all clients
           global_actions.broadcast('update', clients, game)
-        }, 100)
-      }
+        }
+        if (data.hasOwnProperty('gameinit')) {
+          global_actions.send('gameinit', socket, game)
 
-      if (data.hasOwnProperty('state')) {
-        game['players'][socket_address]['state'] = data['state']
-      }
+          timer = setInterval(() => {
+            global_actions.broadcast('update', clients, game)
+          }, 200)
+        }
 
-      if (data.hasOwnProperty('sid')) {
-        //console.log(data['sid'])
-        game['players'][socket_address]['currend_sid'] = data['sid']
-      }
+        if (data.hasOwnProperty('state')) {
+          game['players'][socket_address]['state'] = data['state']
+        }
 
+        if (data.hasOwnProperty('sid')) {
+          //console.log(data['sid'])
+          game['players'][socket_address]['currend_sid'] = data['sid']
+        }
+      }
     } catch (e) {
       throw e
     }

@@ -7,7 +7,7 @@ var config = {
     physics: {
         default: 'arcade',
         arcade: {
-            debug: true,
+            debug: false,
             //gravity: { y: 200 }
         }
     },
@@ -90,6 +90,19 @@ function create() {
                     this.other_players.getChildren().forEach((player) => {
                         console.log(player.playerId)
                         if (players[id]['name'] === player.playerId) {
+                            if (player.x < players[id]['x']) {
+                                player.anims.play('right')
+                            } else if(player.x > players[id]['x']) {
+                                player.anims.play('left')
+                            } else if(player.y < players[id]['y']) {
+                                player.anims.play('turn')
+                            }
+                            else if(player.y > players[id]['y']) {
+                                player.anims.play('turn')
+                            }
+                            else {
+                                player.anims.play('turn')
+                            } 
                             player.setPosition(players[id]['x'], players[id]['y'])
                         }
                     })

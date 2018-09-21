@@ -16,10 +16,11 @@
 <body>
     <script>
         send('setname', player_name)
-        send('state', 'lobby')
-        send('join', player_name)
+        //send('state', 'lobby')
+        
 
         function toGame(){
+            send('join', player_name)
             window.location = 'game.html'
         }
     </script>
