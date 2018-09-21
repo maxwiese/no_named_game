@@ -23,7 +23,7 @@ function handle_response(data) {
                 }
 
             } else if (data[player_ips].state == 'game') {
-
+                return
             }
         }
     }

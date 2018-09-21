@@ -2,10 +2,12 @@ const net = require('net')
 const player_actions = require('./player_actions')
 const global_actions = require('./global_actions')
 
-const interval = 500
+let timer
 
 let clients = []
-let game = {}
+let game = {
+  players: {}
+}
 
 //create the server
 let server = net.createServer((socket) => {
@@ -18,7 +20,7 @@ let server = net.createServer((socket) => {
   clients.push(socket)
 
   //adding player to global obj using address as key
-  game[socket_address] = {}
+  game['players'][socket_address] = {}
 
   //set the datatype to utf-8
   socket.setEncoding('utf8')
@@ -26,19 +28,22 @@ let server = net.createServer((socket) => {
   //handle error event
   socket.on('error', (error) => {
     if (error.code === 'ECONNRESET') {
-      delete game[socket_address]
+      clearInterval(timer)
+      delete game['players'][socket_address]
       socket.destroy()
     }
   })
 
   //handle disconnect event
   socket.on('close', () => {
-    delete game[socket_address]
+    clearInterval(timer)
+    delete game['players'][socket_address]
     console.log("exited")
   })
 
   //init eventhandler for some game relevant events
   socket.on('data', (data) => {
+    //socket.pause()
     try {
 
       //parsing incomming data into Json
@@ -46,33 +51,43 @@ let server = net.createServer((socket) => {
 
       if (data.hasOwnProperty('message')) {
         //handle Message event
-        global_actions.broadcast(clients, data)
+        global_actions.broadcast('message', clients, data)
       }
       if (data.hasOwnProperty('setname')) {
-        //handle setname event
-        player_name = data['setname']
-        game[socket_address]['name'] = player_name
+        game['players'][socket_address]['name'] = data['setname']
         //global_actions.broadcast(`{"player": "${playername} joined the game"}`)
       }
       if (data.hasOwnProperty('join')) {
         //give the player start coordinate
-        game[socket_address]['x'] = 0
-        game[socket_address]['y'] = 0
+        game['players'][socket_address]['x'] = 100
+        game['players'][socket_address]['y'] = 100
       }
       if (data.hasOwnProperty('move')) {
         //handle move from player, direction is given in data section
         direction = JSON.parse(player_actions.move(data['move']))
-        game[socket_address][Object.keys(direction)] += parseInt(direction[Object.keys(direction)])
+        game['players'][socket_address][Object.keys(direction)] += parseInt(direction[Object.keys(direction)])
+
       }
       if (data.hasOwnProperty('update')) {
+        console.log('update')
         //send updatet data to all clients
-        global_actions.broadcast(clients, game)
+        global_actions.broadcast('update', clients, game)
       }
-      if (data.hasOwnProperty('state')) {
-        game[socket_address]['state'] = data['state']
-      }
-      if (data.hasOwnProperty('mapvoting')) {
+      if (data.hasOwnProperty('gameinit')) {
+        global_actions.send('gameinit', socket, game)
         
+        timer = setInterval(() => {
+          global_actions.broadcast('update', clients, game)
+        }, 200)
+      }
+
+      if (data.hasOwnProperty('state')) {
+        game['players'][socket_address]['state'] = data['state']
+      }
+
+      if (data.hasOwnProperty('sid')) {
+        //console.log(data['sid'])
+        game['players'][socket_address]['currend_sid'] = data['sid']
       }
 
     } catch (e) {
@@ -101,7 +116,7 @@ server.on('error', (error) => {
 //start the server
 server.listen(3000, '127.0.0.1', () => {
   console.log('server on ', server.address())
-  setInterval(() => {
-    global_actions.broadcast(clients, game)
-  }, interval)
+  /*   setInterval(() => {
+      global_actions.broadcast(clients, game)
+    }, interval) */
 })

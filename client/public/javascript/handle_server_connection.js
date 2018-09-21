@@ -4,8 +4,9 @@ function connect() {
     ipcRenderer.send('connect')
 }
 
-function send(command, data) {
-    ipcRenderer.send('send', {'command': command, 'data': data, 'timestamp': Date.now()})
+function send(command, data, sid= 0) {
+   // console.log('sendfunction fired')
+    ipcRenderer.send('send', {'command': command, 'data': data, 'timestamp': Date.now(), 'sid': sid})
 }
 
 function disconnect() {
@@ -19,17 +20,17 @@ ipcRenderer.on('connected', (event, args) => {
 })
 
 ipcRenderer.on('error', (event, args) => {
-    console.log(args.code)
+    console.log(args)
     if (args.code === 'ECONNREFUSED' || args.code === 'ECONNRESET') {
         setTimeout(() => {
             ipcRenderer.send('connect')
           }, 1000)
-       document.getElementById('connection').innerHTML = '<i class="material-icons">wifi_off</i>'
-       document.getElementById('ping').innerHTML = '' 
+       //document.getElementById('connection').innerHTML = '<i class="material-icons">wifi_off</i>'
+       //document.getElementById('ping').innerHTML = '' 
     }
 })
 
 ipcRenderer.on('recived', (event, args) => {
 
-    handle_response(args)
+    //handle_response(args)
 })

@@ -10,15 +10,16 @@
     <link rel="stylesheet" href="./public/stylesheet/index.css">
     <link rel="stylesheet" href="./public/stylesheet/icons/google-icon.css">
 
-</head>
-
-<body onload="connect()">
-<body onresize="resize()" onload="connect()">
     <script>
-        if(connection === true) {
-            send(state, mainmenu)
+        function resize() {
+            return
         }
     </script>
+
+</head>
+
+<body onresize="resize()" onload="connect()">
+
     <div class="header">
         <a href="#" class="lefttext a" id="connection"><i class="material-icons">wifi_off</i></a>
         <a href="#" class="lefttext a" id="ping" style="padding: 12px;"></a>
@@ -51,9 +52,6 @@
                 this.load.setBaseURL('http://labs.phaser.io');
                 this.load.image('logo', 'assets/sprites/phaser3-logo.png');
                 this.load.image('red', 'assets/particles/red.png');
-            }
-
-            function create() {
             }
 
             function create() {

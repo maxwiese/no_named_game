@@ -1,14 +1,16 @@
 module.exports = {
     //function to broadcast to all players
-    broadcast: (clients, message) => {
+    broadcast: (action, clients, message) => {
         clients.map((client) => {
+            message['action'] = action
             message['timestamp'] = Date.now()
             client.write(JSON.stringify(message))
         })
     },
 
     // send only to one client
-    send: (client, message) => {
+    send: (action, client, message) => {
+        message['action'] = action
         message['timestamp'] = Date.now()
         client.write(JSON.stringify(message))
     }
