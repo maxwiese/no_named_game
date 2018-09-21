@@ -1,4 +1,3 @@
-// Config for Canvas
 var config = {
     type: Phaser.WEBGL,
     width: 800,
@@ -162,7 +161,7 @@ function create() {
                             }
                             else {
                                 player.anims.play('turn')
-                            } 
+                            }
                             player.setPosition(players[id]['x'], players[id]['y'])
                         }
                     })
