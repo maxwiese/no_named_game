@@ -2,7 +2,7 @@ const net = require('net')
 const player_actions = require('./player_actions')
 const global_actions = require('./global_actions')
 
-const interval = 500
+let timer
 
 let clients = []
 let game = {
@@ -28,6 +28,7 @@ let server = net.createServer((socket) => {
   //handle error event
   socket.on('error', (error) => {
     if (error.code === 'ECONNRESET') {
+      clearInterval(timer)
       delete game['players'][socket_address]
       socket.destroy()
     }
@@ -35,6 +36,7 @@ let server = net.createServer((socket) => {
 
   //handle disconnect event
   socket.on('close', () => {
+    clearInterval(timer)
     delete game['players'][socket_address]
     console.log("exited")
   })
@@ -52,9 +54,7 @@ let server = net.createServer((socket) => {
         global_actions.broadcast('message', clients, data)
       }
       if (data.hasOwnProperty('setname')) {
-        //handle setname event
-        player_name = data['setname']
-        game['players'][socket_address]['name'] = player_name
+        game['players'][socket_address]['name'] = data['setname']
         //global_actions.broadcast(`{"player": "${playername} joined the game"}`)
       }
       if (data.hasOwnProperty('join')) {
@@ -75,12 +75,19 @@ let server = net.createServer((socket) => {
       }
       if (data.hasOwnProperty('gameinit')) {
         global_actions.send('gameinit', socket, game)
+        
+        timer = setInterval(() => {
+          global_actions.broadcast('update', clients, game)
+        }, 200)
       }
+
       if (data.hasOwnProperty('state')) {
         game['players'][socket_address]['state'] = data['state']
       }
-      if (data.hasOwnProperty('mapvoting')) {
 
+      if (data.hasOwnProperty('sid')) {
+        //console.log(data['sid'])
+        game['players'][socket_address]['currend_sid'] = data['sid']
       }
 
     } catch (e) {

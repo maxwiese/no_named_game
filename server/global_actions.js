@@ -14,6 +14,4 @@ module.exports = {
         message['timestamp'] = Date.now()
         client.write(JSON.stringify(message))
     }
-
-    //updateProcess: (socket)
 }
