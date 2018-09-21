@@ -10,15 +10,16 @@
     <link rel="stylesheet" href="./public/stylesheet/index.css">
     <link rel="stylesheet" href="./public/stylesheet/icons/google-icon.css">
 
-</head>
-
-<body onload="connect()">
-<body onresize="resize()" onload="connect()">
     <script>
-        if(connection === true) {
-            send(state, mainmenu)
+        function resize() {
+            return
         }
     </script>
+
+</head>
+
+<body onresize="resize()" onload="connect()">
+
     <div class="header">
         <a href="#" class="lefttext a" id="connection"><i class="material-icons">wifi_off</i></a>
         <a href="#" class="lefttext a" id="ping" style="padding: 12px;"></a>
@@ -26,10 +27,6 @@
         <a href="#" class="righttext a"><i class="material-icons" title="Profile">person</i></a>
     </div>
     <div class="container" id="container">
-        <script>
-            //send('setname', 'The_Admin')
-            //send('join', 'x')
-        </script>
         <script src="./public/phaser.js"></script>
         <script>
             var config = {

@@ -45,8 +45,11 @@ ipcMain.on('connect', (event, args) => {
       let players = json_data['players']
 
       let send_data = players
-
-      event.sender.send(action, send_data)
+      try {
+        event.sender.send(action, send_data)        
+      } catch (error) {
+        console.log(error) 
+      }
     })
   } catch (error) {
     console.error(error)
