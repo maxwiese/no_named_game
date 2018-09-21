@@ -8,6 +8,7 @@
     <script src="./public/javascript/global_variables.js" charset="utf-8"></script>
     <script src="./public/javascript/handle_server_response.js"></script>
     <script src="./public/javascript/handle_server_connection.js"></script>
+    
     <link rel="stylesheet" href="./public/stylesheet/lobby.css">
     <link rel="stylesheet" href="./public/stylesheet/icons/google-icon.css">
 </head>
@@ -38,61 +39,61 @@
                 <div class="card">
                     <img src="./public/images/sky.png" alt="Avatar" style="width:100%">
                     <div class="desc">
-                        <h4 id="players"></h4>
+                        <h4 id="players">Player</h4>
                     </div>
                 </div>
                 <div class="card">
                     <img src="./public/images/sky.png" alt="Avatar" style="width:100%">
                     <div class="desc">
-                        <h4 id="">Player</h4>
+                        <h4 id="players">Player</h4>
                     </div>
                 </div>
                 <div class="card">
                     <img src="./public/images/sky.png" alt="Avatar" style="width:100%">
                     <div class="desc">
-                        <h4 id="">Player</h4>
+                        <h4 id="players">Player</h4>
                     </div>
                 </div>
                 <div class="card">
                     <img src="./public/images/sky.png" alt="Avatar" style="width:100%">
                     <div class="desc">
-                        <h4 id="">Player</h4>
+                        <h4 id="players">Player</h4>
                     </div>
                 </div>
                 <div class="card">
                     <img src="./public/images/sky.png" alt="Avatar" style="width:100%">
                     <div class="desc">
-                        <h4 id="">Player</h4>
+                        <h4 id="players">Player</h4>
                     </div>
                 </div>
                 <div class="card">
                     <img src="./public/images/sky.png" alt="Avatar" style="width:100%">
                     <div class="desc">
-                        <h4 id="">Player</h4>
+                        <h4 id="players">Player</h4>
                     </div>
                 </div>
                 <div class="card">
                     <img src="./public/images/sky.png" alt="Avatar" style="width:100%">
                     <div class="desc">
-                        <h4 id="">Player</h4>
+                        <h4 id="players">Player</h4>
                     </div>
                 </div>
                 <div class="card">
                     <img src="./public/images/sky.png" alt="Avatar" style="width:100%">
                     <div class="desc">
-                        <h4 id="">Player</h4>
+                        <h4 id="players">Player</h4>
                     </div>
                 </div>
                 <div class="card">
                     <img src="./public/images/sky.png" alt="Avatar" style="width:100%">
                     <div class="desc">
-                        <h4 id="">Player</h4>
+                        <h4 id="players">Player</h4>
                     </div>
                 </div>
                 <div class="card">
                     <img src="./public/images/sky.png" alt="Avatar" style="width:100%">
                     <div class="desc">
-                        <h4 id="">Player</h4>
+                        <h4 id="players">Player</h4>
                     </div>
                 </div>
             </div>
@@ -104,7 +105,7 @@
             </div>
             <div class="chatwindow">
                 <div class="chat">
-                    
+
                 </div>
                 <input class="inputfld" type="text" name="input" id="input">
                 <button class="sendbtn">SEND</button>
@@ -112,9 +113,37 @@
 
         </div>
 
-        <div class="character">
+        <div class="character" id="character">
 
         </div>
+        <script src="./public/phaser.js"></script>
+        <script>
+            var config = {
+                type: Phaser.Auto,
+                width: 300,
+                height: 650,
+                parent: 'character',
+                scene: {
+                    preload: preload,
+                    create: create,
+                    update: update,
+                }
+            }
+
+            var game = new Phaser.Game(config)
+
+            function preload() {
+                
+            }
+
+            function create() {
+
+            }
+
+            function update() {
+
+            }
+        </script>
     </div>
 </body>
 
