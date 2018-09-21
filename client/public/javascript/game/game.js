@@ -45,14 +45,34 @@ function create() {
                 addOtherPlayer(this, players[id])
             }
         })
+
+        this.anims.create({
+            key: 'right',
+            frames: this.anims.generateFrameNumbers('stickman', { start: 0, end: 5 }),
+            frameRate: 10,
+            repeat: -1
+        });
+
+        this.anims.create({
+            key: 'turn',
+            frames: [{ key: 'stickman', frame: 6 }],
+            frameRate: 20
+        });
+
+        this.anims.create({
+            key: 'left',
+            frames: this.anims.generateFrameNumbers('stickman', { start: 7, end: 12 }),
+            frameRate: 10,
+            repeat: -1
+        });
     })
 
     ipcRenderer.on('update', (event, players) => {
         Object.keys(players).forEach((id) => {
             if (players[id]['name'] === player_name) {
-                if (players[id]['current_sid'] > current_sid){
+                if (players[id]['current_sid'] > current_sid) {
                     this.player.setPosition(players[id]['x'], players[id]['y'])
-                } else if (players[id]['x']+10>this.player.x  || players[id]['x']-10>this.player.x || players[id]['y']+10>this.player.y || players[id]['y']-10>this.player.y){
+                } else if (players[id]['x'] + 10 > this.player.x || players[id]['x'] - 10 > this.player.x || players[id]['y'] + 10 > this.player.y || players[id]['y'] - 10 > this.player.y) {
                     this.player.setPosition(players[id]['x'], players[id]['y'])
                 }
             } else {
@@ -70,34 +90,33 @@ function update() {
     cursors = this.input.keyboard.createCursorKeys();
     if (this.player) {
         if (cursors.left.isDown) {
-            this.player.setPosition(this.player.x -5, this.player.y)
-            //this.player.setVelocityX(-160);
+            this.player.setPosition(this.player.x - 5, this.player.y)
+            this.player.anims.play('left')
             send('move', 'left', current_sid)
             current_sid++
         }
         else if (cursors.right.isDown) {
-            this.player.setPosition(this.player.x +5, this.player.y)
-            //this.player.setVelocityX(160);
+            this.player.setPosition(this.player.x + 5, this.player.y)
+            this.player.anims.play('right')
             send('move', 'right', current_sid)
             current_sid++
 
         }
         else if (cursors.up.isDown) {
-            this.player.setPosition(this.player.x, this.player.y -5)
-            //this.player.setVelocityY(-160);
+            this.player.setPosition(this.player.x, this.player.y - 5)
+            this.player.anims.play('turn')
             send('move', 'up', current_sid)
             current_sid++
         }
         else if (cursors.down.isDown) {
-            this.player.setPosition(this.player.x, this.player.y +5)
-            //this.player.setVelocityY(160);
+            this.player.setPosition(this.player.x, this.player.y + 5)
+            this.player.anims.play('turn')
             send('move', 'down', current_sid)
             current_sid++
 
         }
         else {
-            //this.player.setVelocityX(0);
-            //this.player.setVelocityY(0)
+            this.player.anims.play('turn')
         }
 
         // save old position data
