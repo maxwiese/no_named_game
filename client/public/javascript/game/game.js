@@ -22,68 +22,81 @@ var game = new Phaser.Game(config)
 
 let last_update
 let current_sid = 5555
+let p_name
+
+
+
 
 function preload() {
     this.load.image('sky', 'public/javascript/game/assets/sky.png')
     this.load.spritesheet('stickman', 'public/javascript/game/assets/stickmansprite.png', { frameWidth: 32, frameHeight: 32 })
+
 }
 
 function create() {
-    last_update = (Date.now() / 1000)
-    this.add.image(0, 0, 'sky')
-    send('gameinit', 'x')
+    ipcRenderer.send('get_name')
+    ipcRenderer.on('name', (event, name) => {
 
-    this.other_players = this.physics.add.group()
-
-    ipcRenderer.on('gameinit', (event, players) => {
-
-        Object.keys(players).forEach((id) => {
-            console.log(players)
-            if (players[id]['name'] === player_name) {
-                addPlayer(this, players[id])
-            } else {
-                addOtherPlayer(this, players[id])
-            }
-        })
-
-        this.anims.create({
-            key: 'right',
-            frames: this.anims.generateFrameNumbers('stickman', { start: 0, end: 5 }),
-            frameRate: 10,
-            repeat: -1
-        });
-
-        this.anims.create({
-            key: 'turn',
-            frames: [{ key: 'stickman', frame: 6 }],
-            frameRate: 20
-        });
-
-        this.anims.create({
-            key: 'left',
-            frames: this.anims.generateFrameNumbers('stickman', { start: 7, end: 12 }),
-            frameRate: 10,
-            repeat: -1
-        });
+        p_name = name
     })
+    if (!p_name) {
+        this.add.image(0, 0, 'sky')
+        send('gameinit', 'x')
 
-    ipcRenderer.on('update', (event, players) => {
-        Object.keys(players).forEach((id) => {
-            if (players[id]['name'] === player_name) {
-                if (players[id]['current_sid'] > current_sid) {
-                    this.player.setPosition(players[id]['x'], players[id]['y'])
-                } else if (players[id]['x'] + 10 > this.player.x || players[id]['x'] - 10 > this.player.x || players[id]['y'] + 10 > this.player.y || players[id]['y'] - 10 > this.player.y) {
-                    this.player.setPosition(players[id]['x'], players[id]['y'])
+        this.other_players = this.physics.add.group()
+
+        ipcRenderer.on('gameinit', (event, players) => {
+
+            Object.keys(players).forEach((id) => {
+                console.log(players)
+                if (id === p_name) {
+                    addPlayer(this, players[id])
+                } else {
+                    addOtherPlayer(this, players[id])
                 }
-            } else {
-                this.all_players.getChildren().forEach((player) => {
-                    if (players[id]['name'] === player.playerId) {
-                        player.setPosition(players[id]['x'], players[id]['y'])
-                    }
-                })
-            }
+            })
+
+            this.anims.create({
+                key: 'right',
+                frames: this.anims.generateFrameNumbers('stickman', { start: 0, end: 5 }),
+                frameRate: 10,
+                repeat: -1
+            });
+
+            this.anims.create({
+                key: 'turn',
+                frames: [{ key: 'stickman', frame: 6 }],
+                frameRate: 20
+            });
+
+            this.anims.create({
+                key: 'left',
+                frames: this.anims.generateFrameNumbers('stickman', { start: 7, end: 12 }),
+                frameRate: 10,
+                repeat: -1
+            });
         })
-    })
+
+        ipcRenderer.on('update', (event, players) => {
+            console.log(players)
+            Object.keys(players).forEach((id) => {
+                if (id === p_name) {
+                    if (players[id]['current_sid'] > current_sid) {
+                        this.player.setPosition(players[id]['x'], players[id]['y'])
+                    } /* else if (players[id]['x'] + 10 > this.player.x || players[id]['x'] - 10 > this.player.x || players[id]['y'] + 10 > this.player.y || players[id]['y'] - 10 > this.player.y) {
+                    this.player.setPosition(players[id]['x'], players[id]['y'])
+                } */
+                } else {
+                    this.other_players.getChildren().forEach((player) => {
+                        console.log(player.playerId)
+                        if (players[id]['name'] === player.playerId) {
+                            player.setPosition(players[id]['x'], players[id]['y'])
+                        }
+                    })
+                }
+            })
+        })
+    }
 }
 
 function update() {

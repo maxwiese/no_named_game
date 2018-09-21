@@ -39,7 +39,13 @@ ipcMain.on('connect', (event, args) => {
   client.setEncoding('utf8')
   try {
     client.on('data', (data) => {
-      let json_data = JSON.parse(data)
+      let json_data
+      try {
+         json_data = JSON.parse(data)      
+      } catch (error) {
+        console.log(error) 
+      }
+      
       let action = json_data['action']
       let timestamp = json_data['timestamp']
       let players = json_data['players']
@@ -63,6 +69,10 @@ ipcMain.on('connect', (event, args) => {
 ipcMain.on('disconnect', (event, args) => {
   client.end()
   //client.destroy()
+})
+
+ipcMain.on('get_name', (event, args) => {
+  event.sender.send('name',`${client.localAddress}${client.localPort}`)
 })
 
 ipcMain.on('send', (event, args) => {

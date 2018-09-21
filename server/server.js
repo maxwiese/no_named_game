@@ -54,9 +54,7 @@ let server = net.createServer((socket) => {
         global_actions.broadcast('message', clients, data)
       }
       if (data.hasOwnProperty('setname')) {
-        //handle setname event
-        player_name = data['setname']
-        game['players'][socket_address]['name'] = player_name
+        game['players'][socket_address]['name'] = data['setname']
         //global_actions.broadcast(`{"player": "${playername} joined the game"}`)
       }
       if (data.hasOwnProperty('join')) {
@@ -79,7 +77,7 @@ let server = net.createServer((socket) => {
         global_actions.send('gameinit', socket, game)
         
         timer = setInterval(() => {
-          global_actions.send('update', socket, game)
+          global_actions.broadcast('update', clients, game)
         }, 200)
       }
 
