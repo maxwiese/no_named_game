@@ -4,9 +4,9 @@ function connect() {
     ipcRenderer.send('connect')
 }
 
-function send(command, data) {
+function send(command, data, sid= 0) {
    // console.log('sendfunction fired')
-    ipcRenderer.send('send', {'command': command, 'data': data, 'timestamp': Date.now()})
+    ipcRenderer.send('send', {'command': command, 'data': data, 'timestamp': Date.now(), 'sid': sid})
 }
 
 function disconnect() {

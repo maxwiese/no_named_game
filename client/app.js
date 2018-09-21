@@ -60,5 +60,5 @@ ipcMain.on('disconnect', (event, args) => {
 
 ipcMain.on('send', (event, args) => {
   //console.log('sending to server fired')
-  client.write(`{"${args.command}": "${args.data}", "timestamp": "${args.timestamp}"}`)
+  client.write(`{"${args.command}": "${args.data}", "timestamp": "${args.timestamp}", "sid": "${args.sid}"}`)
 })
