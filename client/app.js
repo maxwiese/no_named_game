@@ -6,7 +6,7 @@ let win, client
 app.commandLine.appendSwitch('--ignore-gpu-blacklist');
 
 function createWindow() {
-  win = new BrowserWindow({ width: 800, height: 600, title: 'No Name', show: false })
+  win = new BrowserWindow({ width: 800, height: 600, title: 'No Name', show: false, frame: true })
   win.loadURL(`file://${__dirname}/index.html`)
   // Open the DevTools.
   //win.webContents.openDevTools()
