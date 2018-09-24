@@ -8,25 +8,56 @@
     <script src="./public/javascript/global_variables.js" charset="utf-8"></script>
     <script src="./public/javascript/handle_server_response.js"></script>
     <script src="./public/javascript/handle_server_connection.js"></script>
-    
+
     <link rel="stylesheet" href="./public/stylesheet/lobby.css">
     <link rel="stylesheet" href="./public/stylesheet/icons/google-icon.css">
+
+    <link rel="stylesheet" href="./public/stylesheet/frame.css">
 </head>
 
 <body>
+    <!-- Frame Start -->
+    <div id="title-bar">
+        <div id="title">
+            <img src="./public/images/icon.png" alt="Error" style="width: 20px;height:20px;">
+        </div>
+        <div id="title-btns">
+            <button id="dropbtn">Toggle DevTools</button>
+        </div>
+        <div id="title-bar-btns">
+            <button id="min-btn" title="Minimize">
+                <svg aria-hidden="true" version="1.1" width="10" height="10">
+                    <path d="M 0,5 10,5 10,6 0,6 Z"></path>
+                </svg>
+            </button>
+            <button id="max-btn" title="Maximize">
+                <svg aria-hidden="true" version="1.1" width="10" height="10">
+                    <path d="M 0,0 0,10 10,10 10,0 Z M 1,1 9,1 9,9 1,9 Z"></path>
+                </svg>
+            </button>
+            <button id="close-btn" title="Close">
+                <svg aria-hidden="true" version="1.1" width="10" height="10">
+                    <path d="M 0,0 0,0.7 4.3,5 0,9.3 0,10 0.7,10 5,5.7 9.3,10 10,10 10,9.3 5.7,5 10,0.7 10,0 9.3,0 5,4.3 0.7,0 Z"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <script src="./public/javascript/frame.js"></script>
+    <!-- Frame End -->
+
     <script>
         send('setname', player_name)
         //send('state', 'lobby')
-        
 
-        function toGame(){
+
+        function toGame() {
             send('join', player_name)
             window.location = 'game.html'
         }
     </script>
     <div class="header">
         <a href="#" class="lefttext a" id="connection"><i class="material-icons">wifi_off</i></a>
-        <a href="#" class="lefttext a" id="ping" style="padding: 12px;"></a>></a>
+        <a href="#" class="lefttext a" id="ping" style="padding: 12px;"></a></a>
         <a href="#" class="righttext a"><i class="material-icons" title="Settings">settings</i></a>
         <a href="index.html" class="righttext a"><i class="material-icons" title="Profile">person</i></a>
     </div>
@@ -139,7 +170,7 @@
             var game = new Phaser.Game(config)
 
             function preload() {
-                
+
             }
 
             function create() {

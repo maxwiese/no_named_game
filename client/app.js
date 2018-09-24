@@ -6,16 +6,20 @@ let win, client
 app.commandLine.appendSwitch('--ignore-gpu-blacklist');
 
 function createWindow() {
-  win = new BrowserWindow({ width: 800, height: 600, title: 'No Name', show: false, frame: true })
+  win = new BrowserWindow({ width: 800, height: 600, title: 'No Name', show: false, frame: false })
   win.loadURL(`file://${__dirname}/index.html`)
   // Open the DevTools.
   //win.webContents.openDevTools()
+
+  // Start in Fullscreen
+  win.setFullScreen(true)
+
   win.once('ready-to-show', () => win.show())
 
   win.on('closed', () => {
-
     win = null
   })
+
 }
 app.on('ready', createWindow)
 

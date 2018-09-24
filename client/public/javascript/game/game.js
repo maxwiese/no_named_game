@@ -1,11 +1,9 @@
 // Config for Canvas
-const {}
-
 
 var config = {
     type: Phaser.WEBGL,
-    width: 800,
-    height: 600,
+    width: window.innerWidth,
+    height: window.innerHeight,
     parent: 'container',
     physics: {
         default: 'arcade',
