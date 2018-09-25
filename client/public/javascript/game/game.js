@@ -3,6 +3,7 @@ var config = {
     width: 800,
     height: 600,
     parent: 'container',
+    backgroundColor: 0xFFFFFF,
     physics: {
         default: 'arcade',
         arcade: {
@@ -99,7 +100,6 @@ function create() {
         p_name = name
     })
     if (!p_name) {
-        this.add.image(0, 0, 'sky')
         send('gameinit', 'x')
 
         this.other_players = this.physics.add.group()
@@ -107,7 +107,6 @@ function create() {
         ipcRenderer.on('gameinit', (event, players) => {
 
             Object.keys(players).forEach((id) => {
-                console.log(players)
                 if (id === p_name) {
                     addPlayer(this, players[id])
                 } else {
@@ -137,7 +136,6 @@ function create() {
         })
 
         ipcRenderer.on('update', (event, players) => {
-            console.log(players)
             Object.keys(players).forEach((id) => {
                 if (id === p_name) {
                     if (players[id]['current_sid'] > current_sid) {
