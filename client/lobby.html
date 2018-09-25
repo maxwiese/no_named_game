@@ -19,10 +19,13 @@
     <!-- Frame Start -->
     <div id="title-bar">
         <div id="title">
-            <img src="./public/images/icon.png" alt="Error" style="width: 20px;height:20px;">
+            <img src="./public/images/icon.png" alt="Error" style="width: 18px;height:18px;">
         </div>
-        <div id="title-btns">
-            <button id="dropbtn">Toggle DevTools</button>
+        <div id="app-menu-bar">
+            <button id="toolbar-file" class="toolbar-file closed hover">File</button>
+            <div id="foldout-container">
+                <button id="foldout-item">Toggle Dev Tools</button>
+            </div>
         </div>
         <div id="title-bar-btns">
             <button id="min-btn" title="Minimize">
@@ -44,144 +47,146 @@
     </div>
     <script src="./public/javascript/frame.js"></script>
     <!-- Frame End -->
-
-    <script>
-        send('setname', player_name)
-        //send('state', 'lobby')
-
-
-        function toGame() {
-            send('join', player_name)
-            window.location = 'game.html'
-        }
-    </script>
-    <div class="header">
-        <a href="#" class="lefttext a" id="connection"><i class="material-icons">wifi_off</i></a>
-        <a href="#" class="lefttext a" id="ping" style="padding: 12px;"></a></a>
-        <a href="#" class="righttext a"><i class="material-icons" title="Settings">settings</i></a>
-        <a href="index.html" class="righttext a"><i class="material-icons" title="Profile">person</i></a>
-    </div>
-    <!--hier bitte noch css cool machen-->
-    <div class="content">
-        <div class="ready">
-            <button class="readybtn" onclick="toGame()">JOIN</button>
-        </div>
-
-        <div class="players">
-            <div class="title">
-                <h4 class="titletxt">Lobby</h4>
-            </div>
-            <div class="cards">
-
-                <div class="card">
-                    <img src="./public/images/sky.png" alt="Avatar" style="width:100%">
-                    <div class="desc">
-                        <h4 id="players">Player</h4>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="./public/images/sky.png" alt="Avatar" style="width:100%">
-                    <div class="desc">
-                        <h4 id="players">Player</h4>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="./public/images/sky.png" alt="Avatar" style="width:100%">
-                    <div class="desc">
-                        <h4 id="players">Player</h4>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="./public/images/sky.png" alt="Avatar" style="width:100%">
-                    <div class="desc">
-                        <h4 id="players">Player</h4>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="./public/images/sky.png" alt="Avatar" style="width:100%">
-                    <div class="desc">
-                        <h4 id="players">Player</h4>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="./public/images/sky.png" alt="Avatar" style="width:100%">
-                    <div class="desc">
-                        <h4 id="players">Player</h4>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="./public/images/sky.png" alt="Avatar" style="width:100%">
-                    <div class="desc">
-                        <h4 id="players">Player</h4>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="./public/images/sky.png" alt="Avatar" style="width:100%">
-                    <div class="desc">
-                        <h4 id="players">Player</h4>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="./public/images/sky.png" alt="Avatar" style="width:100%">
-                    <div class="desc">
-                        <h4 id="players">Player</h4>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="./public/images/sky.png" alt="Avatar" style="width:100%">
-                    <div class="desc">
-                        <h4 id="players">Player</h4>
-                    </div>
-                </div>
-            </div>
-
-            <div class="voteimg">
-                <a href=""><img src="./public/images/map1.jpg" alt="Error" style="width:200px; height: 150px" class="vote1 voteborder"></a>
-                <a href=""><img src="./public/images/map2.jpg" alt="Error" style="width:200px; height: 150px" class="vote2 voteborder"></a>
-                <a href=""><img src="./public/images/map3.jpg" alt="Error" style="width:200px; height: 150px" class="vote3 voteborder"></a>
-            </div>
-            <div class="chatwindow">
-                <div class="chat">
-
-                </div>
-                <input class="inputfld" type="text" name="input" id="input">
-                <button class="sendbtn">SEND</button>
-            </div>
-
-        </div>
-
-        <div class="character" id="character">
-
-        </div>
-        <script src="./public/phaser.js"></script>
+    <div id="desktop-app-content">
         <script>
-            var config = {
-                type: Phaser.Auto,
-                width: 300,
-                height: 650,
-                parent: 'character',
-                scene: {
-                    preload: preload,
-                    create: create,
-                    update: update,
-                }
-            }
+            send('setname', player_name)
+            //send('state', 'lobby')
 
-            var game = new Phaser.Game(config)
 
-            function preload() {
-
-            }
-
-            function create() {
-
-            }
-
-            function update() {
-
+            function toGame() {
+                send('join', player_name)
+                window.location = 'game.html'
             }
         </script>
+        <div class="header">
+            <a href="#" class="lefttext a" id="connection"><i class="material-icons">wifi_off</i></a>
+            <a href="#" class="lefttext a" id="ping" style="padding: 12px;"></a></a>
+            <a href="#" class="righttext a"><i class="material-icons" title="Settings">settings</i></a>
+            <a href="index.html" class="righttext a"><i class="material-icons" title="Profile">person</i></a>
+        </div>
+        <!--hier bitte noch css cool machen-->
+        <div class="content">
+            <div class="ready">
+                <button class="readybtn" onclick="toGame()">JOIN</button>
+            </div>
+
+            <div class="players">
+                <div class="title">
+                    <h4 class="titletxt">Lobby</h4>
+                </div>
+                <div class="cards">
+
+                    <div class="card">
+                        <img src="./public/images/sky.png" alt="Avatar" style="width:100%">
+                        <div class="desc">
+                            <h4 id="players">Player</h4>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="./public/images/sky.png" alt="Avatar" style="width:100%">
+                        <div class="desc">
+                            <h4 id="players">Player</h4>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="./public/images/sky.png" alt="Avatar" style="width:100%">
+                        <div class="desc">
+                            <h4 id="players">Player</h4>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="./public/images/sky.png" alt="Avatar" style="width:100%">
+                        <div class="desc">
+                            <h4 id="players">Player</h4>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="./public/images/sky.png" alt="Avatar" style="width:100%">
+                        <div class="desc">
+                            <h4 id="players">Player</h4>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="./public/images/sky.png" alt="Avatar" style="width:100%">
+                        <div class="desc">
+                            <h4 id="players">Player</h4>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="./public/images/sky.png" alt="Avatar" style="width:100%">
+                        <div class="desc">
+                            <h4 id="players">Player</h4>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="./public/images/sky.png" alt="Avatar" style="width:100%">
+                        <div class="desc">
+                            <h4 id="players">Player</h4>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="./public/images/sky.png" alt="Avatar" style="width:100%">
+                        <div class="desc">
+                            <h4 id="players">Player</h4>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="./public/images/sky.png" alt="Avatar" style="width:100%">
+                        <div class="desc">
+                            <h4 id="players">Player</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="voteimg">
+                    <a href=""><img src="./public/images/map1.jpg" alt="Error" style="width:200px; height: 150px" class="vote1 voteborder"></a>
+                    <a href=""><img src="./public/images/map2.jpg" alt="Error" style="width:200px; height: 150px" class="vote2 voteborder"></a>
+                    <a href=""><img src="./public/images/map3.jpg" alt="Error" style="width:200px; height: 150px" class="vote3 voteborder"></a>
+                </div>
+                <div class="chatwindow">
+                    <div class="chat">
+
+                    </div>
+                    <input class="inputfld" type="text" name="input" id="input">
+                    <button class="sendbtn">SEND</button>
+                </div>
+
+            </div>
+
+            <div class="character" id="character">
+
+            </div>
+            <script src="./public/phaser.js"></script>
+            <script>
+                var config = {
+                    type: Phaser.Auto,
+                    width: 300,
+                    height: 650,
+                    parent: 'character',
+                    scene: {
+                        preload: preload,
+                        create: create,
+                        update: update,
+                    }
+                }
+
+                var game = new Phaser.Game(config)
+
+                function preload() {
+
+                }
+
+                function create() {
+
+                }
+
+                function update() {
+
+                }
+            </script>
+        </div>
     </div>
+
 </body>
 
 </html>

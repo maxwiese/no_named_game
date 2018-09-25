@@ -2,7 +2,6 @@
 (function () {
     // Retrieve remote BrowserWindow
     const { BrowserWindow } = require('electron').remote
-    const f11 = document.getElementById('title-bar');
 
     function init() {
         // Minimize task
@@ -28,13 +27,19 @@
         });
 
         // Toggle Dev Tools
-        document.getElementById('dropbtn').addEventListener("click", (e) => {
+        document.getElementById('toolbar-file').addEventListener("click", (e) => {
+            toggleContainer();
+        })
+
+        document.getElementById('foldout-item').addEventListener("click", (e) => {
             var window = BrowserWindow.getFocusedWindow();
             window.webContents.openDevTools()
+            toggleContainer();
         })
 
         // Fullscreen via F11
         window.addEventListener('keydown', keyPressed => {
+            let f11 = document.getElementById('title-bar');
             if (keyPressed.keyCode == 122) {
                 var window = BrowserWindow.getFocusedWindow();
                 if (!window.isFullScreen()) {
@@ -55,3 +60,34 @@
 
     };
 })();
+
+
+function toggleContainer() {
+    let fouldout = document.getElementById('foldout-container').style.display;
+    var element = document.getElementById("toolbar-file");
+    var greyout = document.getElementById("desktop-app-content");
+    switch (fouldout) {
+        case 'block':
+            document.getElementById('foldout-container').style.display = 'none'
+            element.classList.add("closed");
+            element.classList.add("hover");
+            element.classList.remove("open");
+            greyout.classList.remove('greyout')
+            break
+
+        case 'none':
+            document.getElementById('foldout-container').style.display = 'block'
+            element.classList.add("open");
+            element.classList.remove("hover");
+            element.classList.remove("closed");
+            greyout.classList.add('greyout')
+            break
+
+        default:
+            document.getElementById('foldout-container').style.display = 'block'
+            element.classList.add("open");
+            element.classList.remove("hover");
+            element.classList.remove("closed");
+            greyout.classList.add('greyout')
+    }
+}

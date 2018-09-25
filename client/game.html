@@ -21,10 +21,13 @@
     <!-- Frame Start -->
     <div id="title-bar">
         <div id="title">
-            <img src="./public/images/icon.png" alt="Error" style="width: 20px;height:20px;">
+            <img src="./public/images/icon.png" alt="Error" style="width: 18px;height:18px;">
         </div>
-        <div id="title-btns">
-            <button id="dropbtn">Toggle DevTools</button>
+        <div id="app-menu-bar">
+            <button id="toolbar-file" class="toolbar-file closed hover">File</button>
+            <div id="foldout-container">
+                <button id="foldout-item">Toggle Dev Tools</button>
+            </div>
         </div>
         <div id="title-bar-btns">
             <button id="min-btn" title="Minimize">
@@ -46,9 +49,12 @@
     </div>
     <script src="./public/javascript/frame.js"></script>
     <!-- Frame End -->
+    <div id="desktop-app-content">
 
-    <div class="container" id="container"></div>
-    <script src="./public/javascript/game/game.js"></script>
+        <div class="container" id="container"></div>
+        <script src="./public/javascript/game/game.js"></script>
+
+    </div>
 </body>
 
 </html>

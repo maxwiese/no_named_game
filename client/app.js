@@ -11,9 +11,6 @@ function createWindow() {
   // Open the DevTools.
   //win.webContents.openDevTools()
 
-  // Start in Fullscreen
-  win.setFullScreen(true)
-
   win.once('ready-to-show', () => win.show())
 
   win.on('closed', () => {

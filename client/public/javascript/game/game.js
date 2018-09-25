@@ -2,8 +2,8 @@
 
 var config = {
     type: Phaser.WEBGL,
-    width: window.innerWidth,
-    height: window.innerHeight,
+    width: 800,
+    height: 600,
     parent: 'container',
     physics: {
         default: 'arcade',
@@ -101,7 +101,7 @@ function create() {
         p_name = name
     })
     if (!p_name) {
-        this.add.image(0, 0, 'sky')
+        this.add.image(400, 300, 'sky')
         send('gameinit', 'x')
 
         this.other_players = this.physics.add.group()
