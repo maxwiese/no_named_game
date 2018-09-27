@@ -1,0 +1,217 @@
+************************************* Invoked: Thu Sep 27 08:16:34 2018
+[0] Arguments: C:\Users\pennig\Downloads\InstallSQLiteStudio-3.2.1.exe
+[11] Operations sanity check succeeded.
+[1494] Loaded control script ":/metadata/installer-config/controller_qs.qs"
+[1494] Using control script: ":/metadata/installer-config/controller_qs.qs"
+[1512] Control script callback "IntroductionPageCallback" does not exist.
+[3923] Warning: :20: TypeError: Cannot call method 'connect' of undefined (:20, )
+[3930] Control script callback "TargetDirectoryPageCallback" does not exist.
+[36203] Control script callback "ComponentSelectionPageCallback" does not exist.
+[44618] Tmp and install directories are on the same volume. Volume mount point: "C:\\" Free space available: "158.08 GiB"
+[44618] Installation space required: "47.66 MiB" Temporary space required: "0.00 bytes" Local repository size: "0.00 bytes"
+[44618] Control script callback "ReadyForInstallationPageCallback" does not exist.
+[47585] Control script callback "PerformInstallationPageCallback" does not exist.
+[47622] backup  operation: Mkdir
+[47622] 	- arguments: C:/Users/pennig/Documents/GitHub/no_named_game/server/DB/GUI
+[47623] Done
+[47623] perform  operation: Mkdir
+[47623] 	- arguments: C:/Users/pennig/Documents/GitHub/no_named_game/server/DB/GUI
+[47625] Done
+[47625] Install size: 22 components
+[47712] backup io.qt operation: Extract
+[47712] 	- arguments: installer://io.qt/5.10.0qt.7z, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI
+[47712] Done
+[47712] perform io.qt operation: Extract
+[47712] 	- arguments: installer://io.qt/5.10.0qt.7z, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI
+[50275] Done
+[50280] backup pl.com.salsoft.sqlitestudio operation: Extract
+[50280] 	- arguments: installer://pl.com.salsoft.sqlitestudio/3.2.1sqlitestudio.7z, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI
+[50280] Done
+[50280] perform pl.com.salsoft.sqlitestudio operation: Extract
+[50280] 	- arguments: installer://pl.com.salsoft.sqlitestudio/3.2.1sqlitestudio.7z, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI
+[52341] Done
+[52341] backup pl.com.salsoft.sqlitestudio operation: CreateShortcut
+[52341] 	- arguments: C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI/SQLiteStudio.exe, C:\Users\pennig\AppData\Roaming\Microsoft\Windows\Start Menu\Programs/SQLiteStudio/SQLiteStudio.lnk, workingDirectory=C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI, iconPath=C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI/SQLiteStudio.exe, iconId=0, description=SQLiteStudio
+[52342] Done
+[52342] perform pl.com.salsoft.sqlitestudio operation: CreateShortcut
+[52342] 	- arguments: C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI/SQLiteStudio.exe, C:\Users\pennig\AppData\Roaming\Microsoft\Windows\Start Menu\Programs/SQLiteStudio/SQLiteStudio.lnk
+[52606] Done
+[52606] backup pl.com.salsoft.sqlitestudio operation: RegisterFileType
+[52606] 	- arguments: db, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI/SQLiteStudio.exe '%1', SQLite database, application/octet-stream, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI/SQLiteStudio.exe,0, ProgId=SQLiteStudio.db
+[52606] Done
+[52607] perform pl.com.salsoft.sqlitestudio operation: RegisterFileType
+[52607] 	- arguments: db, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI/SQLiteStudio.exe '%1', SQLite database, application/octet-stream, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI/SQLiteStudio.exe,0, ProgId=SQLiteStudio.db
+[52617] Done
+[52618] backup pl.com.salsoft.sqlitestudio operation: RegisterFileType
+[52618] 	- arguments: db3, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI/SQLiteStudio.exe '%1', SQLite database, application/octet-stream, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI/SQLiteStudio.exe,0, ProgId=SQLiteStudio.db3
+[52618] Done
+[52618] perform pl.com.salsoft.sqlitestudio operation: RegisterFileType
+[52618] 	- arguments: db3, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI/SQLiteStudio.exe '%1', SQLite database, application/octet-stream, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI/SQLiteStudio.exe,0, ProgId=SQLiteStudio.db3
+[52628] Done
+[52628] backup pl.com.salsoft.sqlitestudio operation: RegisterFileType
+[52628] 	- arguments: sqlite, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI/SQLiteStudio.exe '%1', SQLite database, application/octet-stream, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI/SQLiteStudio.exe,0, ProgId=SQLiteStudio.sqlite
+[52628] Done
+[52628] perform pl.com.salsoft.sqlitestudio operation: RegisterFileType
+[52628] 	- arguments: sqlite, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI/SQLiteStudio.exe '%1', SQLite database, application/octet-stream, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI/SQLiteStudio.exe,0, ProgId=SQLiteStudio.sqlite
+[52639] Done
+[52640] backup pl.com.salsoft.sqlitestudio operation: RegisterFileType
+[52640] 	- arguments: sqlite3, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI/SQLiteStudio.exe '%1', SQLite database, application/octet-stream, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI/SQLiteStudio.exe,0, ProgId=SQLiteStudio.sqlite3
+[52640] Done
+[52640] perform pl.com.salsoft.sqlitestudio operation: RegisterFileType
+[52640] 	- arguments: sqlite3, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI/SQLiteStudio.exe '%1', SQLite database, application/octet-stream, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI/SQLiteStudio.exe,0, ProgId=SQLiteStudio.sqlite3
+[52650] Done
+[52650] backup pl.com.salsoft.sqlitestudio operation: RegisterFileType
+[52650] 	- arguments: sdb, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI/SQLiteStudio.exe '%1', SQLite database, application/octet-stream, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI/SQLiteStudio.exe,0, ProgId=SQLiteStudio.sdb
+[52650] Done
+[52650] perform pl.com.salsoft.sqlitestudio operation: RegisterFileType
+[52650] 	- arguments: sdb, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI/SQLiteStudio.exe '%1', SQLite database, application/octet-stream, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI/SQLiteStudio.exe,0, ProgId=SQLiteStudio.sdb
+[52664] Done
+[52665] backup pl.com.salsoft.sqlitestudio operation: RegisterFileType
+[52665] 	- arguments: s3db, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI/SQLiteStudio.exe '%1', SQLite database, application/octet-stream, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI/SQLiteStudio.exe,0, ProgId=SQLiteStudio.s3db
+[52665] Done
+[52665] perform pl.com.salsoft.sqlitestudio operation: RegisterFileType
+[52665] 	- arguments: s3db, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI/SQLiteStudio.exe '%1', SQLite database, application/octet-stream, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI/SQLiteStudio.exe,0, ProgId=SQLiteStudio.s3db
+[52682] Done
+[52697] backup pl.com.salsoft.sqlitestudio.plugins.dbandroid operation: Extract
+[52697] 	- arguments: installer://pl.com.salsoft.sqlitestudio.plugins.dbandroid/1.2.1DbAndroid.7z, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI
+[52697] Done
+[52697] perform pl.com.salsoft.sqlitestudio.plugins.dbandroid operation: Extract
+[52697] 	- arguments: installer://pl.com.salsoft.sqlitestudio.plugins.dbandroid/1.2.1DbAndroid.7z, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI
+[52843] Done
+[52850] backup pl.com.salsoft.sqlitestudio.plugins.csvexport operation: Extract
+[52850] 	- arguments: installer://pl.com.salsoft.sqlitestudio.plugins.csvexport/1.0.5CsvExport.7z, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI
+[52850] Done
+[52850] perform pl.com.salsoft.sqlitestudio.plugins.csvexport operation: Extract
+[52850] 	- arguments: installer://pl.com.salsoft.sqlitestudio.plugins.csvexport/1.0.5CsvExport.7z, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI
+[52920] Done
+[52929] backup pl.com.salsoft.sqlitestudio.plugins.csvimport operation: Extract
+[52929] 	- arguments: installer://pl.com.salsoft.sqlitestudio.plugins.csvimport/1.0.5CsvImport.7z, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI
+[52929] Done
+[52929] perform pl.com.salsoft.sqlitestudio.plugins.csvimport operation: Extract
+[52929] 	- arguments: installer://pl.com.salsoft.sqlitestudio.plugins.csvimport/1.0.5CsvImport.7z, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI
+[53000] Done
+[53008] backup pl.com.salsoft.sqlitestudio.plugins.configmigration operation: Extract
+[53008] 	- arguments: installer://pl.com.salsoft.sqlitestudio.plugins.configmigration/1.0.3ConfigMigration.7z, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI
+[53008] Done
+[53008] perform pl.com.salsoft.sqlitestudio.plugins.configmigration operation: Extract
+[53008] 	- arguments: installer://pl.com.salsoft.sqlitestudio.plugins.configmigration/1.0.3ConfigMigration.7z, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI
+[53105] Done
+[53113] backup pl.com.salsoft.sqlitestudio.plugins.htmlexport operation: Extract
+[53113] 	- arguments: installer://pl.com.salsoft.sqlitestudio.plugins.htmlexport/1.0.2HtmlExport.7z, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI
+[53113] Done
+[53113] perform pl.com.salsoft.sqlitestudio.plugins.htmlexport operation: Extract
+[53113] 	- arguments: installer://pl.com.salsoft.sqlitestudio.plugins.htmlexport/1.0.2HtmlExport.7z, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI
+[53168] Done
+[53176] backup pl.com.salsoft.sqlitestudio.plugins.multieditorimage operation: Extract
+[53176] 	- arguments: installer://pl.com.salsoft.sqlitestudio.plugins.multieditorimage/1.0.0MultiEditorImage.7z, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI
+[53176] Done
+[53177] perform pl.com.salsoft.sqlitestudio.plugins.multieditorimage operation: Extract
+[53177] 	- arguments: installer://pl.com.salsoft.sqlitestudio.plugins.multieditorimage/1.0.0MultiEditorImage.7z, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI
+[53249] Done
+[53258] backup pl.com.salsoft.sqlitestudio.plugins.jsonexport operation: Extract
+[53258] 	- arguments: installer://pl.com.salsoft.sqlitestudio.plugins.jsonexport/1.0.2JsonExport.7z, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI
+[53258] Done
+[53259] perform pl.com.salsoft.sqlitestudio.plugins.jsonexport operation: Extract
+[53259] 	- arguments: installer://pl.com.salsoft.sqlitestudio.plugins.jsonexport/1.0.2JsonExport.7z, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI
+[53401] Done
+[53417] backup pl.com.salsoft.sqlitestudio.plugins.pdfexport operation: Extract
+[53417] 	- arguments: installer://pl.com.salsoft.sqlitestudio.plugins.pdfexport/1.0.3PdfExport.7z, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI
+[53417] Done
+[53418] perform pl.com.salsoft.sqlitestudio.plugins.pdfexport operation: Extract
+[53418] 	- arguments: installer://pl.com.salsoft.sqlitestudio.plugins.pdfexport/1.0.3PdfExport.7z, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI
+[53644] Done
+[53655] backup pl.com.salsoft.sqlitestudio.plugins.printing operation: Extract
+[53655] 	- arguments: installer://pl.com.salsoft.sqlitestudio.plugins.printing/1.0.3Printing.7z, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI
+[53655] Done
+[53655] perform pl.com.salsoft.sqlitestudio.plugins.printing operation: Extract
+[53655] 	- arguments: installer://pl.com.salsoft.sqlitestudio.plugins.printing/1.0.3Printing.7z, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI
+[53846] Done
+[53881] backup pl.com.salsoft.sqlitestudio.plugins.regexpimport operation: Extract
+[53881] 	- arguments: installer://pl.com.salsoft.sqlitestudio.plugins.regexpimport/1.0.2RegExpImport.7z, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI
+[53881] Done
+[53881] perform pl.com.salsoft.sqlitestudio.plugins.regexpimport operation: Extract
+[53881] 	- arguments: installer://pl.com.salsoft.sqlitestudio.plugins.regexpimport/1.0.2RegExpImport.7z, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI
+[54088] Done
+[54098] backup pl.com.salsoft.sqlitestudio.plugins.sqlenterpriseformatter operation: Extract
+[54098] 	- arguments: installer://pl.com.salsoft.sqlitestudio.plugins.sqlenterpriseformatter/1.0.6SqlEnterpriseFormatter.7z, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI
+[54098] Done
+[54099] perform pl.com.salsoft.sqlitestudio.plugins.sqlenterpriseformatter operation: Extract
+[54099] 	- arguments: installer://pl.com.salsoft.sqlitestudio.plugins.sqlenterpriseformatter/1.0.6SqlEnterpriseFormatter.7z, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI
+[54329] Done
+[54339] backup pl.com.salsoft.sqlitestudio.plugins.sqlexport operation: Extract
+[54339] 	- arguments: installer://pl.com.salsoft.sqlitestudio.plugins.sqlexport/1.1.2SqlExport.7z, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI
+[54339] Done
+[54339] perform pl.com.salsoft.sqlitestudio.plugins.sqlexport operation: Extract
+[54339] 	- arguments: installer://pl.com.salsoft.sqlitestudio.plugins.sqlexport/1.1.2SqlExport.7z, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI
+[54516] Done
+[54558] backup pl.com.salsoft.sqlitestudio.plugins.sqlformattersimple operation: Extract
+[54558] 	- arguments: installer://pl.com.salsoft.sqlitestudio.plugins.sqlformattersimple/1.0.1SqlFormatterSimple.7z, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI
+[54558] Done
+[54559] perform pl.com.salsoft.sqlitestudio.plugins.sqlformattersimple operation: Extract
+[54559] 	- arguments: installer://pl.com.salsoft.sqlitestudio.plugins.sqlformattersimple/1.0.1SqlFormatterSimple.7z, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI
+[54707] Done
+[54725] backup pl.com.salsoft.sqlitestudio.plugins.dbsqlitecipher operation: Extract
+[54725] 	- arguments: installer://pl.com.salsoft.sqlitestudio.plugins.dbsqlitecipher/1.1.1DbSqliteCipher.7z, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI
+[54725] Done
+[54725] perform pl.com.salsoft.sqlitestudio.plugins.dbsqlitecipher operation: Extract
+[54725] 	- arguments: installer://pl.com.salsoft.sqlitestudio.plugins.dbsqlitecipher/1.1.1DbSqliteCipher.7z, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI
+[54935] Done
+[54945] backup pl.com.salsoft.sqlitestudio.plugins.dbsqlite2 operation: Extract
+[54945] 	- arguments: installer://pl.com.salsoft.sqlitestudio.plugins.dbsqlite2/1.0.6DbSqlite2.7z, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI
+[54945] Done
+[54947] perform pl.com.salsoft.sqlitestudio.plugins.dbsqlite2 operation: Extract
+[54947] 	- arguments: installer://pl.com.salsoft.sqlitestudio.plugins.dbsqlite2/1.0.6DbSqlite2.7z, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI
+[55290] Done
+[55300] backup pl.com.salsoft.sqlitestudio.plugins.dbsqlitesystemdata operation: Extract
+[55300] 	- arguments: installer://pl.com.salsoft.sqlitestudio.plugins.dbsqlitesystemdata/1.0.0DbSqliteSystemData.7z, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI
+[55300] Done
+[55300] perform pl.com.salsoft.sqlitestudio.plugins.dbsqlitesystemdata operation: Extract
+[55300] 	- arguments: installer://pl.com.salsoft.sqlitestudio.plugins.dbsqlitesystemdata/1.0.0DbSqliteSystemData.7z, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI
+[55481] Done
+[55494] backup pl.com.salsoft.sqlitestudio.plugins.scriptingtcl operation: Extract
+[55494] 	- arguments: installer://pl.com.salsoft.sqlitestudio.plugins.scriptingtcl/1.0.3ScriptingTcl.7z, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI
+[55494] Done
+[55494] perform pl.com.salsoft.sqlitestudio.plugins.scriptingtcl operation: Extract
+[55494] 	- arguments: installer://pl.com.salsoft.sqlitestudio.plugins.scriptingtcl/1.0.3ScriptingTcl.7z, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI
+[56315] Done
+[56326] backup pl.com.salsoft.sqlitestudio.plugins.dbsqlitewx operation: Extract
+[56326] 	- arguments: installer://pl.com.salsoft.sqlitestudio.plugins.dbsqlitewx/1.0.1DbSqliteWx.7z, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI
+[56326] Done
+[56327] perform pl.com.salsoft.sqlitestudio.plugins.dbsqlitewx operation: Extract
+[56327] 	- arguments: installer://pl.com.salsoft.sqlitestudio.plugins.dbsqlitewx/1.0.1DbSqliteWx.7z, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI
+[56764] Done
+[56773] backup pl.com.salsoft.sqlitestudio.plugins.xmlexport operation: Extract
+[56773] 	- arguments: installer://pl.com.salsoft.sqlitestudio.plugins.xmlexport/1.0.2XmlExport.7z, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI
+[56773] Done
+[56774] perform pl.com.salsoft.sqlitestudio.plugins.xmlexport operation: Extract
+[56774] 	- arguments: installer://pl.com.salsoft.sqlitestudio.plugins.xmlexport/1.0.2XmlExport.7z, C:\Users\pennig\Documents\GitHub\no_named_game\server\DB\GUI
+[56887] Done
+[56913] Writing maintenance tool: "C:\\Users\\pennig\\Documents\\GitHub\\no_named_game\\server\\DB\\GUI/UpdateSQLiteStudio.exe.new"
+[57088] Wrote permissions for maintenance tool.
+[57654] Maintenance tool restart: false.
+[57673] Warning: QString::arg: Argument missing: Run SQLiteStudio, SQLiteStudio
+[57673] Control script callback "FinishedPageCallback" does not exist.
+[61586] starting "C:\\Users\\pennig\\Documents\\GitHub\\no_named_game\\server\\DB\\GUI/SQLiteStudio.exe" ()
+************************************* Invoked: Thu Sep 27 08:17:50 2018
+[0] Operations sanity check succeeded.
+[2958] addDownloadable "HtmlExport.7z"
+[2958] addDownloadable "SqlFormatterSimple.7z"
+[2958] addDownloadable "Printing.7z"
+[2958] addDownloadable "DbAndroid.7z"
+[2958] addDownloadable "qt.7z"
+[2959] addDownloadable "CsvImport.7z"
+[2959] addDownloadable "SqlEnterpriseFormatter.7z"
+[2959] addDownloadable "DbSqlite2.7z"
+[2959] addDownloadable "ConfigMigration.7z"
+[2959] addDownloadable "XmlExport.7z"
+[2959] addDownloadable "JsonExport.7z"
+[2959] addDownloadable "DbSqliteWx.7z"
+[2959] addDownloadable "DbSqliteCipher.7z"
+[2959] addDownloadable "DbSqliteSystemData.7z"
+[2959] addDownloadable "MultiEditorImage.7z"
+[2959] addDownloadable "sqlitestudio.7z"
+[2959] addDownloadable "ScriptingTcl.7z"
+[2960] addDownloadable "SqlExport.7z"
+[2960] addDownloadable "CsvExport.7z"
+[2960] addDownloadable "PdfExport.7z"
+[2960] addDownloadable "RegExpImport.7z"

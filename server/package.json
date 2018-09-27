@@ -18,6 +18,7 @@
   "author": "Markus Hölzle",
   "license": "ISC",
   "dependencies": {
-    "electron": "^2.0.9"
+    "electron": "^2.0.9",
+    "sqlite3": "^4.0.2"
   }
 }

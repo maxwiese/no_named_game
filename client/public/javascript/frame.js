@@ -51,6 +51,7 @@
                 }
             }
         }, true);
+
     };
 
     document.onreadystatechange = () => {
@@ -63,12 +64,15 @@
 
 
 function toggleContainer() {
-    let fouldout = document.getElementById('foldout-container').style.display;
-    var element = document.getElementById("toolbar-file");
-    var greyout = document.getElementById("desktop-app-content");
-    switch (fouldout) {
+    let foldout = document.getElementById('foldout-container');
+    let element = document.getElementById("toolbar-file");
+    let greyout = document.getElementById("desktop-app-content");
+
+
+
+    switch (foldout.style.display) {
         case 'block':
-            document.getElementById('foldout-container').style.display = 'none'
+            foldout.style.display = 'none'
             element.classList.add("closed");
             element.classList.add("hover");
             element.classList.remove("open");
@@ -91,3 +95,4 @@ function toggleContainer() {
             greyout.classList.add('greyout')
     }
 }
+

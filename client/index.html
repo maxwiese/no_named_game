@@ -7,6 +7,9 @@
     <script src="./public/javascript/handle_server_response.js"></script>
     <script src="./public/javascript/handle_server_connection.js"></script>
 
+    <script src="./public/javascript/fullscreen.js"></script>
+    <link rel="stylesheet" href="./public/stylesheet/modal.css">
+
     <link rel="stylesheet" href="./public/stylesheet/index.css">
     <link rel="stylesheet" href="./public/stylesheet/icons/google-icon.css">
     <link rel="stylesheet" href="./public/stylesheet/frame.css">
@@ -53,19 +56,30 @@
     <!-- Frame End -->
     <div id="desktop-app-content">
 
-        <div class="header">
+        <div class="header" id="header">
             <a href="#" class="lefttext a" id="connection"><i class="material-icons">wifi_off</i></a>
             <a href="#" class="lefttext a" id="ping" style="padding: 12px;"></a>
-            <a href="#" class="righttext a"><i class="material-icons" title="Settings">settings</i></a>
+            <a href="#" id="settingbtn" class="righttext a"><i class="material-icons" title="Settings">settings</i></a>
             <a href="#" class="righttext a"><i class="material-icons" title="Profile">person</i></a>
         </div>
         <div class="container" id="container"></div>
 
-        <div class="footer">
+        <div class="footer" id="footer">
             <a href="lobby.html" class="footertxt a">Zur Lobby</a>
         </div>
 
-    </div>
+
+        <!-- The Modal -->
+        <div class="modal-content" id="modal-content">
+            <span class="close">&times;</span>
+            <p>Fullscreen?</p>
+            <select id="modal">
+                <option value="1">On</option>
+                <option id="opt" value="0">Off</option>
+            </select>
+            <button onclick="changeToFullScreen()">Submit</button>
+        </div>
+        <script src="./public/javascript/modalevent.js"></script>
 </body>
 
 </html>
