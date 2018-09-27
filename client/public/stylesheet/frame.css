@@ -1,0 +1,116 @@
+/* Frame CSS */
+html, body {
+    padding: 0px;
+    margin: 0px;
+}
+
+#title-bar {
+    -webkit-app-region: drag;
+    position: relative;
+    top: 0;
+    height: 28px;
+    width: 100%;
+    background-color: #333;
+    border-bottom: 1px solid #000;
+}
+
+#title {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
+#app-menu-bar {
+    -webkit-app-region: no-drag;
+    position: absolute;
+    top: 0;
+    left: 30px;
+}
+
+.toolbar-file {
+    border: 0;
+    height: 28px;
+    padding: 0px 5px;
+    margin: 0;
+}
+
+.closed {
+    background: transparent;
+    color: white;
+}
+
+.open {
+    background: white;
+    color: black;
+}
+
+.hover:hover {
+    background-color: grey;
+}
+
+
+#foldout-container {
+    position: absolute;
+    display: none;
+    top: 28px;
+    background-color: white;
+    width: 150px;
+    padding: 0px;
+    margin: 0px;
+    transition: background-color 0.25s ease;
+    -webkit-transition: background-color 0.25s ease;
+    z-index: 3;
+}
+
+#foldout-item {
+    border: 0px;
+    background: white;
+    padding: 5px;
+    width: 100%;
+    height: 30px;
+}
+
+#foldout-item:hover {
+    background-color: lightblue;
+    color: black
+}
+
+.greyout {
+    background-color: black;
+    opacity: 0.4;
+    height: 100%;
+    width: 100%;
+}
+
+
+/* Min Max Close Button */
+#title-bar-btns {
+    -webkit-app-region: no-drag;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#min-btn, #max-btn, #close-btn {
+    background: transparent;
+    border: 0;
+    height: 28px;
+    width: 35px;
+    color: white;
+    fill: currentColor;
+    padding: 0;
+    margin: 0;
+    transition: background-color 0.25s ease;
+    -webkit-transition: background-color 0.25s ease;
+}
+
+button:focus {outline:0;}
+
+#min-btn:hover, #max-btn:hover {
+    background-color: grey;
+}
+
+#close-btn:hover {
+    background-color: red;
+}
+

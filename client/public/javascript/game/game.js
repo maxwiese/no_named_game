@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+// Config for Canvas
+
+>>>>>>> dev_matthias
 var config = {
     type: Phaser.WEBGL,
     width: 800,
@@ -99,7 +104,7 @@ function create() {
         p_name = name
     })
     if (!p_name) {
-        this.add.image(0, 0, 'sky')
+        this.add.image(400, 300, 'sky')
         send('gameinit', 'x')
 
         this.other_players = this.physics.add.group()

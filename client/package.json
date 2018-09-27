@@ -6,13 +6,14 @@
   "scripts": {
     "start": "electron ."
   },
-  "author": "Markus Hölzle",
+  "author": "Markus Hölzle, Matthias Pennig",
   "license": "ISC",
   "devDependencies": {
     "electron": "^2.0.8"
   },
   "dependencies": {
     "phaser": "^3.12.0",
+    "sqlite3": "^4.0.2",
     "three": "^0.96.0"
   }
 }
