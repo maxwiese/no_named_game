@@ -44,9 +44,8 @@ function setValue(value) {
 }
 
 function changeToFullScreen() {
-    var e = document.getElementById("modal");
-    var strUser = e.options[e.selectedIndex].value;
-    let data = strUser;
+    let e = document.getElementById("modal");
+    let data = e.options[e.selectedIndex].value;
 
     let db = new sqlite.Database('../server/DB/DataBase/FULLSCREEN.db', sqlite.OPEN_READWRITE, (err) => {
         if (err) {

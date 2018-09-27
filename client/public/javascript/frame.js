@@ -68,8 +68,6 @@ function toggleContainer() {
     let element = document.getElementById("toolbar-file");
     let greyout = document.getElementById("desktop-app-content");
 
-
-
     switch (foldout.style.display) {
         case 'block':
             foldout.style.display = 'none'
@@ -80,7 +78,7 @@ function toggleContainer() {
             break
 
         case 'none':
-            document.getElementById('foldout-container').style.display = 'block'
+            foldout.style.display = 'block'
             element.classList.add("open");
             element.classList.remove("hover");
             element.classList.remove("closed");
@@ -88,7 +86,7 @@ function toggleContainer() {
             break
 
         default:
-            document.getElementById('foldout-container').style.display = 'block'
+            foldout.style.display = 'block'
             element.classList.add("open");
             element.classList.remove("hover");
             element.classList.remove("closed");

@@ -1,6 +1,5 @@
 # no_named_game
 # toDo
-- mySQLlite installieren
 - externe Log Klasse
 - saubere Übergänge
 
