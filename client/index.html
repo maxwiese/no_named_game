@@ -7,8 +7,12 @@
     <script src="./public/javascript/handle_server_response.js"></script>
     <script src="./public/javascript/handle_server_connection.js"></script>
 
+    <script src="./public/javascript/fullscreen.js"></script>
+    <link rel="stylesheet" href="./public/stylesheet/modal.css">
+
     <link rel="stylesheet" href="./public/stylesheet/index.css">
     <link rel="stylesheet" href="./public/stylesheet/icons/google-icon.css">
+    <link rel="stylesheet" href="./public/stylesheet/frame.css">
 
     <script>
         function resize() {
@@ -18,65 +22,64 @@
 
 </head>
 
-<body onresize="resize()" onload="connect()">
-
-    <div class="header">
-        <a href="#" class="lefttext a" id="connection"><i class="material-icons">wifi_off</i></a>
-        <a href="#" class="lefttext a" id="ping" style="padding: 12px;"></a>
-        <a href="#" class="righttext a"><i class="material-icons" title="Settings">settings</i></a>
-        <a href="#" class="righttext a"><i class="material-icons" title="Profile">person</i></a>
+<body onresize="resize()" onload="connect()" id="body">
+    <!-- Frame Start -->
+    <div id="title-bar">
+        <div id="title">
+            <img src="./public/images/icon.png" alt="Error" style="width: 18px;height:18px;">
+        </div>
+        <div id="app-menu-bar">
+            <button id="toolbar-file" class="toolbar-file closed hover">File</button>
+            <div id="foldout-container">
+                <button id="foldout-item">Toggle Dev Tools</button>
+            </div>
+        </div>
+        <div id="title-bar-btns">
+            <button id="min-btn" title="Minimize">
+                <svg aria-hidden="true" version="1.1" width="10" height="10">
+                    <path d="M 0,5 10,5 10,6 0,6 Z"></path>
+                </svg>
+            </button>
+            <button id="max-btn" title="Maximize">
+                <svg aria-hidden="true" version="1.1" width="10" height="10">
+                    <path d="M 0,0 0,10 10,10 10,0 Z M 1,1 9,1 9,9 1,9 Z"></path>
+                </svg>
+            </button>
+            <button id="close-btn" title="Close">
+                <svg aria-hidden="true" version="1.1" width="10" height="10">
+                    <path d="M 0,0 0,0.7 4.3,5 0,9.3 0,10 0.7,10 5,5.7 9.3,10 10,10 10,9.3 5.7,5 10,0.7 10,0 9.3,0 5,4.3 0.7,0 Z"></path>
+                </svg>
+            </button>
+        </div>
     </div>
-    <div class="container" id="container">
-        <script src="./public/phaser.js"></script>
-        <script>
-            var config = {
-                type: Phaser.AUTO,
-                width: 1100,
-                height: 880,
-                parent: 'container',
-                physics: {
-                    default: 'arcade',
-                    arcade: {
-                        gravity: { y: 200 }
-                    }
-                },
-                scene: {
-                    preload: preload,
-                    create: create
-                }
-            };
+    <script src="./public/javascript/frame.js"></script>
+    <!-- Frame End -->
+    <div id="desktop-app-content">
 
-            var game = new Phaser.Game(config);
+        <div class="header" id="header">
+            <a href="#" class="lefttext a" id="connection"><i class="material-icons">wifi_off</i></a>
+            <a href="#" class="lefttext a" id="ping" style="padding: 12px;"></a>
+            <a href="#" id="settingbtn" class="righttext a"><i class="material-icons" title="Settings">settings</i></a>
+            <a href="#" class="righttext a"><i class="material-icons" title="Profile">person</i></a>
+        </div>
+        <div class="container" id="container"></div>
 
-            function preload() {
-                this.load.setBaseURL('http://labs.phaser.io');
-                this.load.image('logo', 'assets/sprites/phaser3-logo.png');
-                this.load.image('red', 'assets/particles/red.png');
-            }
+        <div class="footer" id="footer">
+            <a href="lobby.html" class="footertxt a">Zur Lobby</a>
+        </div>
 
-            function create() {
-                var particles = this.add.particles('red');
 
-                var emitter = particles.createEmitter({
-                    speed: 100,
-                    scale: { start: 1, end: 0 },
-                    blendMode: 'ADD'
-                });
-
-                var logo = this.physics.add.image(400, 100, 'logo');
-
-                logo.setVelocity(100, 200);
-                logo.setBounce(1, 1);
-                logo.setCollideWorldBounds(true);
-
-                emitter.startFollow(logo);
-            }
-        </script>
-    </div>
-
-    <div class="footer">
-        <a href="lobby.html" class="footertxt a">Zur Lobby</a>
-    </div>
+        <!-- The Modal -->
+        <div class="modal-content" id="modal-content">
+            <span class="close">&times;</span>
+            <p>Fullscreen?</p>
+            <select id="modal">
+                <option value="1">On</option>
+                <option id="opt" value="0">Off</option>
+            </select>
+            <button onclick="changeToFullScreen()">Submit</button>
+        </div>
+        <script src="./public/javascript/modalevent.js"></script>
 </body>
 
 </html>

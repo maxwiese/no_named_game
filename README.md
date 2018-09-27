@@ -1,4 +1,8 @@
 # no_named_game
+# toDo
+- externe Log Klasse
+- saubere Übergänge
+
 ## current using:
 
 - start server first
@@ -15,5 +19,6 @@
 - working on server:
     - append id in the send command for server recognition 
 ### matthias
-- learning WebGL
+- learning Phaser
 - styling
+
