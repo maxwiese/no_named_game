@@ -5,8 +5,8 @@ function toGame() {
 
     var config = {
         type: Phaser.WEBGL,
-        width: 800,
-        height: 600,
+        width: 1700,
+        height: 1000,
         parent: 'container',
         physics: {
             default: 'arcade',
