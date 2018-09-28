@@ -1,39 +1,4 @@
-body {
-    margin: 0;
-}
-
-.header {
-    position: relative;
-    top: 0;
-    height: 44px;
-    width:100%;
-    background-color: #333;
-    text-align: center;
-    z-index: 2;
-}
-
-.a {
-    text-decoration: none;
-    color: white;
-    font-size: 17px;
-}
-
-.a:hover {
-    color: grey;
-}
-
-.lefttext {
-    float: left;
-    padding: 7px;
-}
-
-.righttext {
-    float: right;
-    padding: 7px;
-}
-
-
-.content {
+.lobby-content {
     width: 1100px;
     margin: 20px auto 0px auto;
 }
@@ -109,6 +74,7 @@ body {
     background-color: white;
     float: left;
     margin: 10px;
+    height: 180px;
 }
 
 .desc {
@@ -176,4 +142,8 @@ body {
     background-color: #555;
     box-shadow: 0 1px #666;
     transform: translateY(4px);
+  }
+
+  .desc {
+      color: white;
   }
