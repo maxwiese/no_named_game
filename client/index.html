@@ -3,23 +3,32 @@
 
 <head>
     <meta charset="UTF-8">
+    <!-- JavaScript -->
+    <script src="./public/phaser.js"></script>
     <script src="./public/javascript/global_variables.js" charset="utf-8"></script>
     <script src="./public/javascript/handle_server_response.js"></script>
     <script src="./public/javascript/handle_server_connection.js"></script>
 
     <script src="./public/javascript/fullscreen.js"></script>
-    <link rel="stylesheet" href="./public/stylesheet/modal.css">
 
-    <link rel="stylesheet" href="./public/stylesheet/index.css">
-    <link rel="stylesheet" href="./public/stylesheet/icons/google-icon.css">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="./public/stylesheet/google-icon.css">
     <link rel="stylesheet" href="./public/stylesheet/frame.css">
+    <link rel="stylesheet" href="./public/stylesheet/index.css">
+    <link rel="stylesheet" href="./public/stylesheet/lobby.css">
+    <!--<link rel="stylesheet" href="./public/stylesheet/game.css">-->
+    <link rel="stylesheet" href="./public/stylesheet/modal.css">
 
     <script>
         function resize() {
             return
         }
-    </script>
 
+        function toLobby() {
+            document.getElementById('lobby-content').style.display = 'block'
+            document.getElementById('footer').style.display = 'none'
+        }
+    </script>
 </head>
 
 <body onresize="resize()" onload="connect()" id="body">
@@ -55,31 +64,133 @@
     <script src="./public/javascript/frame.js"></script>
     <!-- Frame End -->
     <div id="desktop-app-content">
-
+        <!-- Header Start -->
         <div class="header" id="header">
             <a href="#" class="lefttext a" id="connection"><i class="material-icons">wifi_off</i></a>
             <a href="#" class="lefttext a" id="ping" style="padding: 12px;"></a>
             <a href="#" id="settingbtn" class="righttext a"><i class="material-icons" title="Settings">settings</i></a>
             <a href="#" class="righttext a"><i class="material-icons" title="Profile">person</i></a>
         </div>
-        <div class="container" id="container"></div>
+        <!-- Header End -->
 
-        <div class="footer" id="footer">
-            <a href="lobby.html" class="footertxt a">Zur Lobby</a>
+        <!-- Lobby Start -->
+        <div class="lobby-content" id="lobby-content" style="display:none;">
+            <div class="ready">
+                <button class="readybtn" onclick="toGame()">JOIN</button>
+            </div>
+
+            <div class="players">
+                <div class="title">
+                    <h4 class="titletxt">Lobby</h4>
+                </div>
+                <div class="cards">
+
+                    <div class="card">
+                        <img src="./public/images/icon.png" alt="Avatar" style="width:100%">
+                        <div class="desc">
+                            <h4 id="players">Player</h4>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="./public/images/icon.png" alt="Avatar" style="width:100%">
+                        <div class="desc">
+                            <h4 id="players">Player</h4>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="./public/images/icon.png" alt="Avatar" style="width:100%">
+                        <div class="desc">
+                            <h4 id="players">Player</h4>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="./public/images/icon.png" alt="Avatar" style="width:100%">
+                        <div class="desc">
+                            <h4 id="players">Player</h4>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="./public/images/icon.png" alt="Avatar" style="width:100%">
+                        <div class="desc">
+                            <h4 id="players">Player</h4>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="./public/images/icon.png" alt="Avatar" style="width:100%">
+                        <div class="desc">
+                            <h4 id="players">Player</h4>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="./public/images/icon.png" alt="Avatar" style="width:100%">
+                        <div class="desc">
+                            <h4 id="players">Player</h4>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="./public/images/icon.png" alt="Avatar" style="width:100%">
+                        <div class="desc">
+                            <h4 id="players">Player</h4>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="./public/images/icon.png" alt="Avatar" style="width:100%">
+                        <div class="desc">
+                            <h4 id="players">Player</h4>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="./public/images/icon.png" alt="Avatar" style="width:100%">
+                        <div class="desc">
+                            <h4 id="players">Player</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="voteimg">
+                    <a href=""><img src="./public/images/map1.jpg" alt="Error" style="width:200px; height: 150px" class="vote1 voteborder"></a>
+                    <a href=""><img src="./public/images/map2.jpg" alt="Error" style="width:200px; height: 150px" class="vote2 voteborder"></a>
+                    <a href=""><img src="./public/images/map3.jpg" alt="Error" style="width:200px; height: 150px" class="vote3 voteborder"></a>
+                </div>
+                <div class="chatwindow">
+                    <div class="chat">
+
+                    </div>
+                    <input class="inputfld" type="text" name="input" id="input">
+                    <button class="sendbtn">SEND</button>
+                </div>
+            </div>
+
+            <div class="character" id="character"></div>
         </div>
+        <script src="./public/phaser.js"></script>
+        <script src="./public/javascript/lobby.js"></script>
+    </div>
+    <!-- Lobby End -->
 
+    <!-- Game Start -->
+    <script src="./public/javascript/game/game.js"></script>
+    <!-- Game End -->
+    <!-- Footer Start -->
+    <div class="footer" id="footer">
+        <button id="footerbtn" onclick="toLobby()" class="footertxt">Zur Lobby</button>
+    </div>
+    <!-- Footer End -->
 
-        <!-- The Modal -->
-        <div class="modal-content" id="modal-content">
-            <span class="close">&times;</span>
-            <p>Fullscreen?</p>
-            <select id="modal">
-                <option value="1">On</option>
-                <option id="opt" value="0">Off</option>
-            </select>
-            <button onclick="changeToFullScreen()">Submit</button>
-        </div>
-        <script src="./public/javascript/modalevent.js"></script>
+    <!-- Modal Start -->
+    <div class="modal-content" id="modal-content">
+        <span class="close">&times;</span>
+        <div class="row1">
+        <p class="d">Fullscreen</p>
+        <select id="modal" class="selectopt">
+            <option value="1">On</option>
+            <option id="opt" value="0">Off</option>
+        </select>
+        </div>  
+        <button class="modalbtn" onclick="changeToFullScreen()">Submit</button>
+    </div>
+    <script src="./public/javascript/modalevent.js"></script>
+    <!-- Modal End -->
 </body>
 
 </html>

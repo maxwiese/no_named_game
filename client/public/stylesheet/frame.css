@@ -76,7 +76,7 @@ html, body {
 }
 
 .greyout {
-    background-color: black;
+    background: black;
     opacity: 0.4;
     height: 100%;
     width: 100%;
